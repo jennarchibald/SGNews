@@ -2,8 +2,8 @@ package com.codeclan.sgnews.demo.components;
 
 import com.codeclan.sgnews.demo.models.Article;
 import com.codeclan.sgnews.demo.models.Journalist;
-import com.codeclan.sgnews.demo.repositories.ArticleRepository;
-import com.codeclan.sgnews.demo.repositories.JournalistRepository;
+import com.codeclan.sgnews.demo.repositories.articleRepository.ArticleRepository;
+import com.codeclan.sgnews.demo.repositories.journalistRepository.JournalistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

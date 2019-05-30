@@ -1,4 +1,4 @@
-package com.codeclan.sgnews.demo.repositories;
+package com.codeclan.sgnews.demo.repositories.articleRepository;
 
 import com.codeclan.sgnews.demo.models.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
