@@ -8,9 +8,9 @@ class MediaContainer extends Component{
 
       return (
         <div className="media-container">
-        <MediaTitle />
+          <MediaTitle title="Media Title Props Working"/>
 
-        <MediaList />
+          <MediaList />
         </div>
       );
     }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class MediaTitle extends Component {
+const MediaTitle = (props) => {
 
-  render() {
-    return <p>media title working</p>
-    }
+    return (<h1>{props.title}</h1>
+
+      )
 
 }
 
