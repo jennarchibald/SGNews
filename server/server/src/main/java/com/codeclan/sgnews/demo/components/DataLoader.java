@@ -1,5 +1,7 @@
 package com.codeclan.sgnews.demo.components;
 
+import com.codeclan.sgnews.demo.enums.Category;
+import com.codeclan.sgnews.demo.enums.Region;
 import com.codeclan.sgnews.demo.models.Article;
 import com.codeclan.sgnews.demo.models.Journalist;
 import com.codeclan.sgnews.demo.repositories.articleRepository.ArticleRepository;
@@ -34,7 +36,7 @@ public class DataLoader implements ApplicationRunner {
         Journalist jenn = new Journalist("Jenn", "no image found");
         journalistRepository.save(jenn);
 
-        Article article = new Article("It's in the Database!", "We've saved it!", "It has successfully saved", "no picture", ben, "2019-05-31T11:13:12.725Z");
+        Article article = new Article("It's in the Database!", "We've saved it!", "It has successfully saved", "no picture", ben, "2019-05-31T11:13:12.725Z", Category.TECH, Region.HIGHLANDS);
         articleRepository.save(article);
     }
 }

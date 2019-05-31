@@ -1,5 +1,7 @@
 package com.codeclan.sgnews.demo.models;
 
+import com.codeclan.sgnews.demo.enums.Category;
+import com.codeclan.sgnews.demo.enums.Region;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -27,21 +29,45 @@ public class Article {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "category")
+    private Category category;
+
+    @Column(name = "region")
+    private Region region;
+
     @JsonIgnoreProperties("articles")
     @ManyToOne
     @JoinColumn(name = "journalist_id", nullable = false)
     private Journalist journalist;
 
-    public Article(String headline, String summary, String storyText, String image, Journalist journalist, String date) {
+    public Article(String headline, String summary, String storyText, String image, Journalist journalist, String date, Category category, Region region) {
         this.headline = headline;
         this.summary = summary;
         this.storyText = storyText;
         this.image = image;
         this.journalist = journalist;
         this.date = date;
+        this.category = category;
+        this.region = region;
     }
 
     public Article() {
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {
