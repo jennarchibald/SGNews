@@ -24,17 +24,21 @@ public class Article {
     @Column(name= "image")
     private String image;
 
+    @Column(name = "date")
+    private String date;
+
     @JsonIgnoreProperties("articles")
     @ManyToOne
     @JoinColumn(name = "journalist_id", nullable = false)
     private Journalist journalist;
 
-    public Article(String headline, String summary, String storyText, String image, Journalist journalist) {
+    public Article(String headline, String summary, String storyText, String image, Journalist journalist, String date) {
         this.headline = headline;
         this.summary = summary;
         this.storyText = storyText;
         this.image = image;
         this.journalist = journalist;
+        this.date = date;
     }
 
     public Article() {
@@ -86,5 +90,13 @@ public class Article {
 
     public void setJournalist(Journalist journalist) {
         this.journalist = journalist;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

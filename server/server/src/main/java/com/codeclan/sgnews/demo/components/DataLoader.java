@@ -34,7 +34,7 @@ public class DataLoader implements ApplicationRunner {
         Journalist jenn = new Journalist("Jenn", "no image found");
         journalistRepository.save(jenn);
 
-        Article article = new Article("It's in the Database!", "We've saved it!", "It has successfully saved", "no picture", ben);
+        Article article = new Article("It's in the Database!", "We've saved it!", "It has successfully saved", "no picture", ben, "2019-05-31T11:13:12.725Z");
         articleRepository.save(article);
     }
 }

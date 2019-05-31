@@ -11,5 +11,6 @@ public interface EmbedJournalists {
     public String getSummary();
     public String getStoryText();
     public String getImage();
+    public String getDate();
     public Journalist getJournalist();
 }
