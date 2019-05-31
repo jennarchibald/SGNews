@@ -8,7 +8,7 @@ import java.util.List;
 
 @Projection(name = "embedArticles", types = Journalist.class)
 public interface EmbedArticles {
-
+    public Long getId();
     public String getName();
     public String getImage();
     public List<Article> getArticles();
