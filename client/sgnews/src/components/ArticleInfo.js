@@ -5,8 +5,12 @@ class ArticleInfo extends Component {
   render() {
 
     return (
-
-      <p>article info working</p>
+      <div className="article-info">
+      <p>{this.props.storyText}</p>
+      <p>{this.props.summary}</p>
+      <p>{this.props.headline}</p>
+      <p>{this.props.article}</p>
+      </div>
       );
     }
 

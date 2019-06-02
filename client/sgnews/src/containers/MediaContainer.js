@@ -10,7 +10,7 @@ class MediaContainer extends Component{
       journalists: []
     }
   }
-  
+
   componentDidMount() {
     const articleUrl = 'http://localhost:8080/articles/bydate';
     const journalistsUrl = 'http://localhost:8080/journalists'
@@ -33,9 +33,9 @@ class MediaContainer extends Component{
 
       return (
         <div className="media-container">
-          <MediaTitle title="Media Title Props Working"/>
+          <MediaTitle title="Just fuck off"/>
 
-          <MediaList />
+          <MediaList articles={this.state.articles} />
         </div>
       );
     }
