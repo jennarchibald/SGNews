@@ -6,10 +6,8 @@ class ArticleInfo extends Component {
 
     return (
       <div className="article-info">
-      <p>{this.props.children.storyText}</p>
-      <p>{this.props.children.summary}</p>
-      <p>{this.props.children.headline}</p>
-      <p>{this.props.children.article}</p>
+
+      <li>{this.props.children.headline} | {this.props.children.summary}</li>
       </div>
       );
     }

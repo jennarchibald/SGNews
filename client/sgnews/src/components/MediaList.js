@@ -11,7 +11,9 @@ class MediaList extends Component {
 
     return (
       <div className="media-list-container">
-        {mediaNodes}
+      <ul>
+        <ol>{mediaNodes}</ol>
+      </ul>
       </div>
       );
     }
