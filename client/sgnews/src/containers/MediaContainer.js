@@ -33,7 +33,7 @@ class MediaContainer extends Component{
 
       return (
         <div className="media-container">
-          <MediaTitle title="Just fuck off"/>
+          <MediaTitle title="LANGUAGE!! :P"/>
 
           <MediaList articles={this.state.articles} />
         </div>

@@ -5,7 +5,7 @@ class MediaList extends Component {
   render() {
     const mediaNodes = this.props.articles.map(article => {
         return(
-          <ArticleInfo key={article.id}>{article.title} {article.summary}</ArticleInfo>
+          <ArticleInfo key={article.id}>{article}</ArticleInfo>
         );
     });
 
