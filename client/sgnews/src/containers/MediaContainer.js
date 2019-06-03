@@ -73,7 +73,7 @@ class MediaContainer extends Component{
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(article)
+        body: JSON.stringify(journalist)
     })
     .then((res) => {
       return res.json();
