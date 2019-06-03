@@ -135,7 +135,7 @@ class MediaContainer extends Component{
           exact path ="/editor/articles/new"
           render = {(props) => {
                 return (
-                <NewArticleForm journalists = {props} />
+                <NewArticleForm journalists = {this.state.journalists} />
               )}}
             />
           <Route

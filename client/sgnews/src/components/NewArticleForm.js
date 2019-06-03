@@ -48,7 +48,7 @@ class NewArticleForm extends Component {
     this.setState({storytext: event.target.value});
   };
 
-  handleStorySummary(event){
+  handleSummaryChange(event){
     this.setState({summary: event.target.value});
   };
 
