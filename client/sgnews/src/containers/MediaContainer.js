@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
 import JournalistList from '../components/JournalistList';
+import FullArticleInfo from '../components/FullArticleInfo';
 import NavBar from '../components/NavBar';
 
 class MediaContainer extends Component{
@@ -31,7 +32,7 @@ class MediaContainer extends Component{
   }
 
   findByID(array,id) {
-      return array.find(element => element.id === id);
+      return array.find((element) => element.id === id);
   };
 
     render() {
@@ -49,14 +50,15 @@ class MediaContainer extends Component{
           />
           <Route
           exact path = "/journalists"
-          render = {() => <MediaTitle title = "journalists index" />}
+          render = {() => <JournalistList journalists = {this.state.journalists} />}
           />
           <Route
           path = "/articles/:id"
           render = {(props) => {
+            if (this.state.articles[0]){
             return (
-            <MediaTitle title = {`article ${props.match.params.id}`} />
-          )}}
+            <FullArticleInfo article = {this.findByID(this.state.articles,parseInt(props.match.params.id))} />
+          )}}}
           />
           <Route
           path = "/journalists/:id"
