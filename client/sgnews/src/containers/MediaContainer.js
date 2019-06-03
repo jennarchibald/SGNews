@@ -6,6 +6,7 @@ import JournalistList from '../components/JournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
 import NavBar from '../components/NavBar';
+import EditorHomePage from '../components/EditorHomePage';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -54,6 +55,18 @@ class MediaContainer extends Component{
           render = {() => <JournalistList journalists = {this.state.journalists} />}
           />
           <Route
+          exact path = "/editor"
+          render = {() => <EditorHomePage />}
+          />
+          <Route
+          exact path = "/editor/articles"
+          render = {() => <ArticleList articles = {this.state.articles} />}
+          />
+          <Route
+          exact path = "/editor/journalists"
+          render = {() => <JournalistList journalists = {this.state.journalists} />}
+          />
+          <Route
           path = "/articles/:id"
           render = {(props) => {
             const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
@@ -64,6 +77,24 @@ class MediaContainer extends Component{
           />
           <Route
           path = "/journalists/:id"
+          render = {(props) => {
+            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+            if (journalist){
+            return (
+            <FullJournalistInfo journalist = {journalist} />
+          )}}}
+          />
+          <Route
+          path = "/editor/articles/:id"
+          render = {(props) => {
+            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+            if (article){
+            return (
+            <FullArticleInfo article = {article} />
+          )}}}
+          />
+          <Route
+          path = "/editor/journalists/:id"
           render = {(props) => {
             const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
             if (journalist){
