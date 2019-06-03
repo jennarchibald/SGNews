@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import ArticleInfo from './ArticleInfo';
+import ArticleListInfo from './ArticleListInfo';
 
-class MediaList extends Component {
+class ArticleList extends Component {
   render() {
     const mediaNodes = this.props.articles.map(article => {
         return(
-          <ArticleInfo key={article.id}>{article}</ArticleInfo>
+          <ArticleListInfo key={article.id}>{article}</ArticleListInfo>
         );
     });
 
     return (
       <div className="media-list-container">
       <ul>
-        <ol>{mediaNodes}</ol>
+        {mediaNodes}
       </ul>
       </div>
       );
@@ -20,4 +20,4 @@ class MediaList extends Component {
 
 }
 
-export default MediaList;
+export default ArticleList;

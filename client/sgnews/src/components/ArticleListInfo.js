@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ArticleInfo extends Component {
+class ArticleListInfo extends Component {
 
   render() {
 
@@ -14,4 +14,4 @@ class ArticleInfo extends Component {
 
 }
 
-export default ArticleInfo;
+export default ArticleListInfo;
