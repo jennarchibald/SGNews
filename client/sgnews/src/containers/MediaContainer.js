@@ -67,6 +67,27 @@ class MediaContainer extends Component{
     });
   }
 
+  postNewJournalist(journalist){
+    fetch("http://localhost:8080/journalists", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(article)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((postedJournalist) => {
+      const journalists = this.state.journalists;
+      journalists.push(postedJournalist);
+      this.setState({journalists: journalists});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   findByID(array,id) {
       return array.find((element) => element.id === id);
   };
