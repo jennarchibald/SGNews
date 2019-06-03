@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
+import JournalistInfo from '../components/JournalistInfo';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -32,11 +33,17 @@ class MediaContainer extends Component{
 
 
       return (
+        <>
         <div className="media-container">
           <MediaTitle title="LANGUAGE!! :P"/>
 
           <ArticleList articles={this.state.articles} />
         </div>
+
+        <div>
+          <JournalistInfo journalists={this.state.journalists}/>
+        </div>
+        </>
       );
     }
   }
