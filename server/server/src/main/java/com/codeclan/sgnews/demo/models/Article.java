@@ -17,10 +17,10 @@ public class Article {
     @Column(name="headline")
     private String headline;
 
-    @Column(name="summary")
+    @Column(name="summary", columnDefinition = "TEXT")
     private String summary;
 
-    @Column(name="story_text")
+    @Column(name="story_text", columnDefinition = "TEXT")
     private String storyText;
 
     @Column(name= "image")
