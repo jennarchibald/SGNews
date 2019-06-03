@@ -10,11 +10,11 @@ class FullArticleInfo extends Component {
 
     return (
       <div>
-        <h1>{props.headline}</h1>
-        <h4>{props.date.substring(0, 11)}</h4>
-        <h3>{props.summary}</h3>
-        <p>{props.storyText}</p>
-        <h4>Artcle written by {props.journalist.name}</h4>
+        <h1>{props.article.headline}</h1>
+        <h4>{props.article.date.substring(0, 11)}</h4>
+        <h3>{props.article.summary}</h3>
+        <p>{props.article.storyText}</p>
+        <h4>Article written by {props.article.journalist.name}</h4>
       </div>
       );
     }
