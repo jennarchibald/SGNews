@@ -70,6 +70,7 @@ class MediaContainer extends Component{
   }
 
   postNewJournalist(journalist){
+    journalist.articles = [];
     fetch("http://localhost:8080/journalists", {
         method: 'POST',
         headers: {

@@ -3,14 +3,15 @@ import React, { Component, Fragment } from 'react';
 class FullJournalistInfo extends Component{
 
   render(){
-    const articles = this.props.journalist.articles.map((article, index) =>{
+    let articles = [];
+    if (this.props.articles){
+    let articles = this.props.journalist.articles.map((article, index) =>{
       return (
       <Fragment key = {index} >
       <li >{article.headline}</li>
       </Fragment>
     )
-  })
-
+  })}
   return(
     <div>
     <h1>{this.props.journalist.name}</h1>
