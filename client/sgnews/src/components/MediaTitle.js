@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const MediaTitle = (props) => {
 
 
-    return
+    return (<h1>{props.title}</h1>
 
       )
 

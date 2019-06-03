@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
-import MediaList from '../components/MediaList';
+import ArticleList from '../components/ArticleList';
 
 class MediaContainer extends Component{
   constructor(props) {
