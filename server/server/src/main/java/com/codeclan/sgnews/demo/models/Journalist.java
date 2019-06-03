@@ -18,16 +18,28 @@ public class Journalist {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "bio")
+    private String bio;
+
     @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
     private List<Article> articles;
 
-    public Journalist(String name, String image) {
+    public Journalist(String name, String image, String bio) {
         this.name = name;
         this.image = image;
+        this.bio = bio;
         this.articles = new ArrayList<>();
     }
 
     public Journalist() {
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public Long getId() {

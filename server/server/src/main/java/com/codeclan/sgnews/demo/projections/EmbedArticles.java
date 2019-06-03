@@ -11,5 +11,6 @@ public interface EmbedArticles {
     public Long getId();
     public String getName();
     public String getImage();
+    public String getBio();
     public List<Article> getArticles();
 }
