@@ -21,4 +21,4 @@ class FullArticleInfo extends Component {
 
 }
 
-export default MediaList;
+export default FullArticleInfo;
