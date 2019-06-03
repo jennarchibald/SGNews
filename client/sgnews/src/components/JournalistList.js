@@ -3,7 +3,7 @@ import JournalistListInfo from './JournalistListInfo';
 
 class JournalistList extends Component {
     render(){
-        const journalistNodes = this.props.journalist.map(journalist => {
+        const journalistNodes = this.props.journalists.map(journalist => {
             return(
                 <JournalistListInfo key={journalist.id}>{journalist}</JournalistListInfo>
             );
@@ -12,7 +12,7 @@ class JournalistList extends Component {
         return(
             <div className="journalist-list-container">
                 <ul>
-                    {mediaNodes}
+                    {journalistNodes}
                 </ul>
             </div>
         );

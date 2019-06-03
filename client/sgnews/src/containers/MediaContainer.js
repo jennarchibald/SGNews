@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
-import JournalistInfo from '../components/JournalistInfo';
+import JournalistList from '../components/JournalistList';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -41,7 +41,7 @@ class MediaContainer extends Component{
         </div>
 
         <div>
-          <JournalistInfo journalists={this.state.journalists}/>
+          <JournalistList journalists={this.state.journalists}/>
         </div>
         </>
       );
