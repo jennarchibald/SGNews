@@ -74,7 +74,11 @@ class MediaContainer extends Component{
             if (article){
             return (
             <FullArticleInfo article = {article} />
-          )}}}
+          )} else {
+            return (
+              <ErrorPage />
+            )
+          }}}
           />
           <Route
           path = "/journalists/:id"
@@ -83,7 +87,11 @@ class MediaContainer extends Component{
             if (journalist){
             return (
             <FullJournalistInfo journalist = {journalist} />
-          )}}}
+          )} else {
+            return (
+              <ErrorPage />
+            )
+          }}}
           />
           <Route
           path = "/editor/articles/:id"
@@ -92,7 +100,11 @@ class MediaContainer extends Component{
             if (article){
             return (
             <FullArticleInfo article = {article} />
-          )}}}
+          )} else {
+            return (
+              <ErrorPage />
+            )
+          }}}
           />
           <Route
           path = "/editor/journalists/:id"
@@ -101,7 +113,11 @@ class MediaContainer extends Component{
             if (journalist){
             return (
             <FullJournalistInfo journalist = {journalist} />
-          )}}}
+          )} else {
+            return (
+              <ErrorPage />
+            )
+          }}}
           />
           </Switch>
         </Router>
