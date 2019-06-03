@@ -8,6 +8,7 @@ import FullJournalistInfo from '../components/FullJournalistInfo';
 import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
+import NewJournalistForm from '../components/NewJournalistForm';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -18,6 +19,7 @@ class MediaContainer extends Component{
     }
 
     this.postNewArticle = this.postNewArticle.bind(this);
+    this.postNewJournalist = this.postNewJournalist.bind(this);
   }
 
   componentDidMount() {
@@ -120,6 +122,14 @@ class MediaContainer extends Component{
           <Route
           exact path = "/editor/journalists"
           render = {() => <JournalistList journalists = {this.state.journalists} />}
+          />
+          <Route
+          exact path = "/editor/journalists/new"
+          render = {(props) => {
+            return (
+              <NewJournalistForm handleSubmit = {this.postNewJournalist}/>
+            )
+          }}
           />
           <Route
           path = "/articles/:id"
