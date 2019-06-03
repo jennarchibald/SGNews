@@ -5,6 +5,7 @@ import ArticleList from '../components/ArticleList';
 import JournalistList from '../components/JournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
+import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
 
