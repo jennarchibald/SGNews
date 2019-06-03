@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
 
@@ -28,15 +29,37 @@ class MediaContainer extends Component{
   }
 
     render() {
-
-
-
       return (
-        <div className="media-container">
-          <MediaTitle title="LANGUAGE!! :P"/>
-
-          <ArticleList articles={this.state.articles} />
-        </div>
+        <Router>
+          <Switch>
+          <Route
+          exact path = "/"
+          render = {() => <MediaTitle title = "HomePage" />}
+          />
+          <Route
+          exact path = "/articles"
+          render = {() => <ArticleList articles = {this.state.articles} />}
+          />
+          <Route
+          exact path = "/journalists"
+          render = {() => <MediaTitle title = "journalists index" />}
+          />
+          <Route
+          path = "/articles/:id"
+          render = {(props) => {
+            return (
+            <MediaTitle title = {`article ${props.match.params.id}`} />
+          )}}
+          />
+          <Route
+          path = "/journalists/:id"
+          render = {(props) => {
+            return (
+            <MediaTitle title = {`journalists ${props.match.params.id}`} />
+          )}}
+          />
+          </Switch>
+        </Router>
       );
     }
   }
