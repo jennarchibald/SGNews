@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MediaTitle from '../components/MediaTitle';
-import MediaList from '../components/MediaList';
+import ArticleList from '../components/ArticleList';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -35,7 +35,7 @@ class MediaContainer extends Component{
         <div className="media-container">
           <MediaTitle title="LANGUAGE!! :P"/>
 
-          <MediaList articles={this.state.articles} />
+          <ArticleList articles={this.state.articles} />
         </div>
       );
     }
