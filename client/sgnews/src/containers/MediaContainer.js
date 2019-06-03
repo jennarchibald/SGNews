@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
-<<<<<<< HEAD
 import JournalistList from '../components/JournalistList';
-=======
 import NavBar from '../components/NavBar';
->>>>>>> develop
 
 class MediaContainer extends Component{
   constructor(props) {
