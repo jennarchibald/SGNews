@@ -16,6 +16,8 @@ class MediaContainer extends Component{
       articles: [],
       journalists: []
     }
+
+    this.postNewArticle = this.postNewArticle.bind(this);
   }
 
   componentDidMount() {
@@ -25,12 +27,43 @@ class MediaContainer extends Component{
     .then(res => res.json())
     .then((articles) => {
       this.setState({ articles: articles });
+    })
+    .catch((error) => {
+      console.log(error);
     });
+
     fetch(journalistsUrl)
     .then(res => res.json())
     .then((journalistsData) => {
       const journalists = journalistsData["_embedded"].journalists;
       this.setState({ journalists: journalists });
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+  }
+
+  postNewArticle(article){
+    article.date = new Date();
+    fetch("http://localhost:8080/articles", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(article)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((postedArticle) => {
+      const articles = this.state.articles;
+      console.log(postedArticle)
+      articles.push(postedArticle);
+      this.setState({articles: articles});
+    })
+    .catch((error) => {
+      console.log(error);
     });
   }
 
