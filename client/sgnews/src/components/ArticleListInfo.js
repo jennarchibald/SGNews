@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class ArticleListInfo extends Component {
 
@@ -7,7 +8,7 @@ class ArticleListInfo extends Component {
     return (
       <div className="article-info">
 
-      <li>{this.props.children.headline} | {this.props.children.summary}</li>
+      <li><Link to = {`/articles/${this.props.children.id}`}>{this.props.children.headline} </Link>| {this.props.children.summary}</li>
       </div>
       );
     }
