@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class NewJournalistForm extends React.Component {
   constructor(props){
@@ -32,32 +33,40 @@ class NewJournalistForm extends React.Component {
   handleFormSubmit(event){
     event.preventDefault();
     this.props.handleSubmit(this.state);
+    this.setState({redirect: true})
   }
 
   render(){
-    return(
-      <form>
-      <label htmlFor = "name">Name:</label>
-      <input
-      id = "name"
-      value = {this.state.name}
-      onChange = {this.handleNameChange}/>
+    if (this.state.redirect){
+      return (
+        <Redirect to = "/editor/journalists" />
+      )
+    } else {
 
-      <label htmlFor = "image">Image URL:</label>
-      <input
-      id = "image"
-      value = {this.state.image}
-      onChange = {this.handleImageChange}/>
+      return(
+        <form>
+        <label htmlFor = "name">Name:</label>
+        <input
+        id = "name"
+        value = {this.state.name}
+        onChange = {this.handleNameChange}/>
 
-      <label htmlFor = "bio">Biography:</label>
-      <input
-      id = "bio"
-      value = {this.state.bio}
-      onChange = {this.handleBioChange}/>
+        <label htmlFor = "image">Image URL:</label>
+        <input
+        id = "image"
+        value = {this.state.image}
+        onChange = {this.handleImageChange}/>
 
-      <input type = "submit" value = "submit" onClick = {this.handleFormSubmit}/>
-      </form>
-    )
+        <label htmlFor = "bio">Biography:</label>
+        <input
+        id = "bio"
+        value = {this.state.bio}
+        onChange = {this.handleBioChange}/>
+
+        <input type = "submit" value = "submit" onClick = {this.handleFormSubmit}/>
+        </form>
+      )
+    }
   }
 }
 
