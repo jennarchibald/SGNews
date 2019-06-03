@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MediaTitle from '../components/MediaTitle';
-import ArticleList from '../components/ArticleList';
+import MediaList from '../components/MediaList';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -27,15 +27,19 @@ class MediaContainer extends Component{
     });
   }
 
+  findByID(array,id) {
+      return array.find(element => element.id === id);
+  };
+
     render() {
 
 
 
       return (
         <div className="media-container">
-          <MediaTitle title="LANGUAGE!! :P"/>
+          <MediaTitle title="Media Title Props Working"/>
 
-          <ArticleList articles={this.state.articles} />
+          <MediaList articles={this.state.articles}/>
         </div>
       );
     }
