@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
+import NewArticleForm from '../components/NewArticleForm';
 import NavBar from '../components/NavBar';
 
 class MediaContainer extends Component{
@@ -51,6 +52,13 @@ class MediaContainer extends Component{
           render = {() => <MediaTitle title = "journalists index" />}
           />
           <Route
+          exact path ="/editor/articles/new"
+          render = {(props) => {
+                return (
+                <NewArticleForm journalists = {props} />
+              )}}
+            />
+          <Route
           path = "/articles/:id"
           render = {(props) => {
             return (
@@ -64,6 +72,9 @@ class MediaContainer extends Component{
             <MediaTitle title = {`journalists ${props.match.params.id}`} />
           )}}
           />
+
+
+
           </Switch>
         </Router>
       );
