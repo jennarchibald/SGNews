@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
+import NavBar from '../components/NavBar';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -31,6 +32,7 @@ class MediaContainer extends Component{
     render() {
       return (
         <Router>
+          <NavBar/>
           <Switch>
           <Route
           exact path = "/"
