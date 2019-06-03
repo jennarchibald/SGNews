@@ -60,7 +60,6 @@ class MediaContainer extends Component{
     })
     .then((postedArticle) => {
       const articles = this.state.articles;
-      console.log(postedArticle)
       articles.push(postedArticle);
       this.setState({articles: articles});
     })
