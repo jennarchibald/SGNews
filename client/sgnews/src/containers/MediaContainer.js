@@ -4,6 +4,7 @@ import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
 import JournalistList from '../components/JournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
+import FullJournalistInfo from '../components/FullJournalistInfo';
 import NavBar from '../components/NavBar';
 
 class MediaContainer extends Component{
@@ -55,17 +56,20 @@ class MediaContainer extends Component{
           <Route
           path = "/articles/:id"
           render = {(props) => {
-            if (this.state.articles[0]){
+            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+            if (article){
             return (
-            <FullArticleInfo article = {this.findByID(this.state.articles,parseInt(props.match.params.id))} />
+            <FullArticleInfo article = {article} />
           )}}}
           />
           <Route
           path = "/journalists/:id"
           render = {(props) => {
+            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+            if (journalist){
             return (
-            <MediaTitle title = {`journalists ${props.match.params.id}`} />
-          )}}
+            <FullJournalistInfo journalist = {journalist} />
+          )}}}
           />
           </Switch>
         </Router>
