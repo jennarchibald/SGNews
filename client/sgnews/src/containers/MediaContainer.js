@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
-import JournalistInfo from '../components/JournalistInfo';
+import JournalistList from '../components/JournalistList';
+import FullArticleInfo from '../components/FullArticleInfo';
+import FullJournalistInfo from '../components/FullJournalistInfo';
+import ErrorPage from '../components/ErrorPage';
+import NavBar from '../components/NavBar';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -28,22 +33,51 @@ class MediaContainer extends Component{
     });
   }
 
+  findByID(array,id) {
+      return array.find((element) => element.id === id);
+  };
+
     render() {
-
-
-
       return (
-        <>
-        <div className="media-container">
-          <MediaTitle title="LANGUAGE!! :P"/>
+        <Router>
+          <NavBar/>
+          <Switch>
+          <Route
+          exact path = "/"
+          render = {() => <MediaTitle title = "HomePage" />}
+          />
+          <Route
+          exact path = "/articles"
+          render = {() => <ArticleList articles = {this.state.articles} />}
+          />
+          <Route
+          exact path = "/journalists"
+          render = {() => <JournalistList journalists = {this.state.journalists} />}
+          />
+          <Route
+          path = "/articles/:id"
+          render = {(props) => {
+            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+            if (article){
+            return (
+            <FullArticleInfo article = {article} />
+          )}}}
+          />
+          <Route
+          path = "/journalists/:id"
+          render = {(props) => {
+            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+            if (journalist){
+            return (
+            <FullJournalistInfo journalist = {journalist} />
+          )}}}
+          />
+          <Route
+          component = {ErrorPage}
+          />
+          </Switch>
+        </Router>
 
-          <ArticleList articles={this.state.articles} />
-        </div>
-
-        <div>
-          <JournalistInfo journalists={this.state.journalists}/>
-        </div>
-        </>
       );
     }
   }

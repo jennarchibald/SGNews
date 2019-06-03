@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const MediaTitle = (props) => {
+
 
     return (<h1>{props.title}</h1>
 
