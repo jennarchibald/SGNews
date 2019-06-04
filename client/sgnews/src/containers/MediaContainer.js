@@ -8,6 +8,7 @@ import JournalistList from '../components/JournalistList';
 import EditorJournalistList from '../components/EditorJournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
+import EditorFullJournalistInfo from '../components/EditorFullJournalistInfo';
 import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
@@ -19,7 +20,8 @@ class MediaContainer extends Component{
     super(props)
     this.state = {
       articles: [],
-      journalists: []
+      journalists: [],
+      editorLogin: false
     }
 
     this.postNewArticle = this.postNewArticle.bind(this);
@@ -49,6 +51,14 @@ class MediaContainer extends Component{
       console.log(error)
     });
 
+  }
+
+  fakeLogin(){
+    this.setState({editorLogin: true})
+  }
+
+  fakeLogout(){
+    this.setState({editorLogin: false})
   }
 
   postNewArticle(article){
@@ -133,7 +143,7 @@ class MediaContainer extends Component{
     render() {
       return (
         <Router>
-          <NavBar />
+          <NavBar editor = {this.state.editorLogin}/>
           <Switch>
           <Route
           exact path = "/"
@@ -235,7 +245,7 @@ class MediaContainer extends Component{
                           const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
                           if (journalist){
                             return (
-                              <FullJournalistInfo journalist = {journalist} />
+                              <EditorFullJournalistInfo journalist = {journalist} />
                             )} else {
                               return (
                                 <ErrorPage />
