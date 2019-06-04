@@ -5,6 +5,7 @@ import ArticleList from '../components/ArticleList';
 import EditorArticleList from '../components/EditorArticleList';
 import NewArticleForm from '../components/NewArticleForm';
 import JournalistList from '../components/JournalistList';
+import EditorJournalistList from '../components/EditorJournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
 import ErrorPage from '../components/ErrorPage';
@@ -125,7 +126,7 @@ class MediaContainer extends Component{
           />
           <Route
           exact path = "/editor/journalists"
-          render = {() => <JournalistList journalists = {this.state.journalists} />}
+          render = {() => <EditorJournalistList journalists = {this.state.journalists} />}
           />
           <Route
           exact path = "/editor/journalists/new"
