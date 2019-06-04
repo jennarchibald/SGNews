@@ -62,7 +62,9 @@ class MediaContainer extends Component{
     })
     .then((postedArticle) => {
       const articles = this.state.articles;
-      articles.push(postedArticle);
+      const newArticle = postedArticle;
+      newArticle.journalist = postedArticle["_embedded"].journalist;
+      articles.push(newArticle);
       this.setState({articles: articles});
     })
     .catch((error) => {
@@ -137,7 +139,7 @@ class MediaContainer extends Component{
           exact path ="/editor/articles/new"
           render = {(props) => {
                 return (
-                <NewArticleForm journalists = {this.state.journalists} />
+                <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
               )}}
             />
           <Route
