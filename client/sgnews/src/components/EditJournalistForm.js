@@ -6,6 +6,7 @@ class EditJournalistForm extends React.Component {
     super(props);
 
     this.state = {
+      id: this.props.journalist.id,
       name: this.props.journalist.name,
       image: this.props.journalist.image,
       bio: this.props.journalist.bio
@@ -39,7 +40,7 @@ class EditJournalistForm extends React.Component {
   render(){
     if (this.state.redirect){
       return (
-        <Redirect to = "/editor/journalists/:id" />
+        <Redirect to = {`/editor/journalists/${this.state.id}`} />
       )
     } else {
 

@@ -22,6 +22,7 @@ class MediaContainer extends Component{
 
     this.postNewArticle = this.postNewArticle.bind(this);
     this.postNewJournalist = this.postNewJournalist.bind(this);
+    this.putUpdateJournalist = this.putUpdateJournalist.bind(this);
   }
 
   componentDidMount() {
@@ -95,7 +96,6 @@ class MediaContainer extends Component{
   }
 
   putUpdateJournalist(journalist){
-    // journalist.articles = [];
     const id = journalist.id
     fetch("http://localhost:8080/journalists/" + id, {
       method: 'PUT',
@@ -108,7 +108,9 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedJournalist) => {
+      console.log(updatedJournalist)
       const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
+      console.log(journalist)
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
       journalists[journalistIndex] = updatedJournalist;
@@ -201,7 +203,7 @@ class MediaContainer extends Component{
                       const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
                       if (journalist){
                       return (
-                      <EditJournalistForm journalist = {journalist} />
+                      <EditJournalistForm journalist = {journalist} handleSubmit = {this.putUpdateJournalist}/>
                     )} else {
                       return (
                         <ErrorPage />
