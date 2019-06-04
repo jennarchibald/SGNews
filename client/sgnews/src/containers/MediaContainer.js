@@ -142,6 +142,23 @@ class MediaContainer extends Component{
     })
   }
 
+  deleteArticle(article){
+    const id = article.id
+    fetch("http://localhost:8080/articles/" + id), {
+      method: 'DELETE'
+    })
+    .then((res) => {
+      const article = this.findByID(articles, id);
+      const articleIndex = this.state.articles.indexOf(article);
+      const articles = this.state.articles;
+      articles.splice(articleIndex, 1);
+      this.setState(articles);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   findByID(array,id) {
     return array.find((element) => element.id === id);
   };
