@@ -80,6 +80,7 @@ class EditArticleForm extends Component {
         required
         type = "text"
         name = "headline"
+        value = {this.state.headline}
         onChange = {this.handleHeadlineChange}/>
         </div>
 
@@ -89,6 +90,7 @@ class EditArticleForm extends Component {
         required
         type="text"
         name="summary"
+        value = {this.state.summary}
         onChange = {this.handleSummaryChange}/>
         </div>
 
@@ -99,6 +101,7 @@ class EditArticleForm extends Component {
         type="text"
         rows="5" cols="40"
         name="storyText"
+        value = {this.state.storyText}
         onChange = {this.handleStoryTextChange}/>
         </div>
 
@@ -108,6 +111,7 @@ class EditArticleForm extends Component {
         required
         type="text"
         name="image"
+        value = {this.state.image}
         onChange = {this.handleImageChange}/>
         </div>
 
@@ -116,9 +120,9 @@ class EditArticleForm extends Component {
         <select
         required
         onChange = {this.handleRegionChange}
-        defaultValue = "default">
+        defaultValue = {this.state.region}>
         <option
-        value = "default"
+        value = {this.state.region}
         disabled>
         Select a region
         </option>

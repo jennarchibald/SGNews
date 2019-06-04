@@ -108,10 +108,11 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedJournalist) => {
-      if (updatedJournalist.id === id){
-        journalists[updatedJournalist.id - 1] = updatedJournalist;
-        this.setState({journalists: journalists});
-      }
+      const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
+      const journalistIndex = this.state.journalists.indexOf(journalist);
+      const journalists = this.state.journalists;
+      journalists[journalistIndex] = updatedJournalist;
+      this.setState(journalists);
     })
     .catch((error) => {
       console.log(error);
@@ -207,7 +208,7 @@ class MediaContainer extends Component{
                       )
                     }}}
                     />
-                    
+
           <Route
           path = "/editor/articles/:id"
           render = {(props) => {
