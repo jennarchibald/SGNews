@@ -137,6 +137,9 @@ class MediaContainer extends Component{
       journalists.splice(journalistIndex, 1);
       this.setState(journalists);
     })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   findByID(array,id) {
