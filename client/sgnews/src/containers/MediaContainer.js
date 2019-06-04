@@ -142,6 +142,7 @@ class MediaContainer extends Component{
 
 
   putUpdateArticle(article){
+    console.log(article)
     const id = article.id
     fetch("http://localhost:8080/articles/" + id, {
       method: 'PUT',
@@ -165,6 +166,7 @@ class MediaContainer extends Component{
     .catch((error) => {
       console.log(error);
     });
+    console.log(this.state.articles)
   }
 
   deleteJournalist(journalist){
