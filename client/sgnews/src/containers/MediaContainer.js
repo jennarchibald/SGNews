@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
+import EditorArticleList from '../components/EditorArticleList';
 import NewArticleForm from '../components/NewArticleForm';
 import JournalistList from '../components/JournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
@@ -120,7 +121,7 @@ class MediaContainer extends Component{
           />
           <Route
           exact path = "/editor/articles"
-          render = {() => <ArticleList articles = {this.state.articles} />}
+          render = {() => <EditorArticleList articles = {this.state.articles} />}
           />
           <Route
           exact path = "/editor/journalists"
