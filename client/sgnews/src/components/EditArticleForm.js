@@ -67,7 +67,6 @@ class EditArticleForm extends Component {
   }
 
   render() {
-    console.log(this.props.article)
     if (this.state.redirect){
       return (
         <Redirect to = "/editor/articles" />
