@@ -12,7 +12,7 @@ class EditArticleForm extends Component {
       category: this.props.article.category,
       headline: this.props.article.headline,
       image: this.props.article.image,
-      journalist: `http://localhost:8080/journalists/${this.props.article.journalist.id}`,
+      journalist: this.props.article.journalist.id,
       region: this.props.article.region,
       storyText: this.props.article.storyText,
       summary: this.props.article.summary
@@ -59,11 +59,15 @@ class EditArticleForm extends Component {
 
   handleFormSubmit(event){
     event.preventDefault();
-    this.props.handleSubmit(this.state);
+    const editedArticle = this.state;
+    const journalistURL = `http://localhost:8080/journalists/${this.state.journalist}`
+    editedArticle.journalist = journalistURL
+    this.props.handleSubmit(editedArticle);
     this.setState({redirect: true})
   }
 
   render() {
+    console.log(this.props.article)
     if (this.state.redirect){
       return (
         <Redirect to = "/editor/articles" />
@@ -168,13 +172,14 @@ class EditArticleForm extends Component {
         <select
         required
         onChange = {this.handleJournalistChange}
-        defaultValue={this.state.journalist}>
-        {this.props.journalists.map((journalist)=>
+        value = {this.state.journalist}>
+        {this.props.journalists.map((journalist)=> {
+          return (
           <option
           key={journalist.id}
-          value={`http://localhost:8080/journalists/${journalist.id}`}>
+          value={journalist.id}>
           {journalist.name}
-          </option>)}
+          </option>)})}
           </select>
 
           </div>
