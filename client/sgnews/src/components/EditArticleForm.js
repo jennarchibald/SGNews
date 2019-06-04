@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
+
 
 class EditArticleForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      id: this.props.article.id,
+      date: this.props.article.date,
       category: this.props.article.category,
       headline: this.props.article.headline,
       image: this.props.article.image,
-      journalist: this.props.article.journalist,
+      journalist: this.props.article.journalist.id,
       region: this.props.article.region,
-      storytext: this.props.article.storyText,
+      storyText: this.props.article.storyText,
       summary: this.props.article.summary
     }
 
@@ -21,6 +25,7 @@ class EditArticleForm extends Component {
     this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleStoryTextChange = this.handleStoryTextChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
 
@@ -45,12 +50,21 @@ class EditArticleForm extends Component {
   };
 
   handleStoryTextChange(event){
-    this.setState({storytext: event.target.value});
+    this.setState({storyText: event.target.value});
   };
 
   handleSummaryChange(event){
     this.setState({summary: event.target.value});
   };
+
+  handleFormSubmit(event){
+    event.preventDefault();
+    const editedArticle = this.state;
+    const journalistURL = `http://localhost:8080/journalists/${this.state.journalist}`
+    editedArticle.journalist = journalistURL
+    this.props.handleSubmit(editedArticle);
+    this.setState({redirect: true})
+  }
 
   render() {
     if (this.state.redirect){
@@ -101,8 +115,9 @@ class EditArticleForm extends Component {
         type="text"
         rows="5" cols="40"
         name="storyText"
-        value = {this.state.storyText}
-        onChange = {this.handleStoryTextChange}/>
+        defaultValue = {this.state.storyText}
+        onChange = {this.handleStoryTextChange}
+        />
         </div>
 
         <div className="form_wrap" >
@@ -121,11 +136,6 @@ class EditArticleForm extends Component {
         required
         onChange = {this.handleRegionChange}
         defaultValue = {this.state.region}>
-        <option
-        value = {this.state.region}
-        disabled>
-        Select a region
-        </option>
         {regions.map((region, index) => {
           return(
             <option
@@ -143,12 +153,7 @@ class EditArticleForm extends Component {
         <select
         required
         onChange = {this.handleCategoryChange}
-        defaultValue = "default">
-        <option
-        disabled
-        value = "default">
-        Select a category
-        </option>
+        defaultValue = {this.state.category}>
         {categories.map((category, index) => {
           return(
             <option
@@ -162,21 +167,18 @@ class EditArticleForm extends Component {
         </div>
 
         <div className="form_wrap" >
-        <label htmlFor="journalist">journalist:</label>
+        <label htmlFor="journalist">Journalist:</label>
         <select
         required
         onChange = {this.handleJournalistChange}
-        defaultValue="default">
-        <option disabled
-        value = "default">
-        Select a journalist
-        </option>
-        {this.props.journalists.map((journalist)=>
+        value = {this.state.journalist}>
+        {this.props.journalists.map((journalist)=> {
+          return (
           <option
           key={journalist.id}
-          value={`http://localhost:8080/journalist/${journalist.id}`}>
+          value={journalist.id}>
           {journalist.name}
-          </option>)}
+          </option>)})}
           </select>
 
           </div>
