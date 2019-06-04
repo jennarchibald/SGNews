@@ -94,6 +94,30 @@ class MediaContainer extends Component{
     });
   }
 
+  putUpdateJournalist(journalist){
+    // journalist.articles = [];
+    const id = journalist.id
+    fetch("http://localhost:8080/journalists/" + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(journalist)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((updatedJournalist) => {
+      if (updatedJournalist.id === id){
+        journalists[updatedJournalist.id - 1] = updatedJournalist;
+        this.setState({journalists: journalists});
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   findByID(array,id) {
       return array.find((element) => element.id === id);
   };
