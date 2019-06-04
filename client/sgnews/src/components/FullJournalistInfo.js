@@ -4,7 +4,7 @@ class FullJournalistInfo extends Component{
 
   render(){
     let articles = [];
-    if (this.props.articles){
+    if (this.props.journalist.articles){
       articles = this.props.journalist.articles.map((article, index) =>{
         return (
           <Fragment key = {index} >

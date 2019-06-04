@@ -111,6 +111,8 @@ class MediaContainer extends Component{
     })
     .then((updatedJournalist) => {
       console.log(updatedJournalist)
+      const articles = updatedJournalist["_embedded"].articles;
+      updatedJournalist.articles = articles;
       const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
       console.log(journalist)
       const journalistIndex = this.state.journalists.indexOf(journalist);

@@ -8,7 +8,7 @@ class EditorJournalistListInfo extends Component{
     return(
 
       <div>
-          <li><Link to = {`/editor/journalists/${this.props.children.id}`}>{this.props.children.name} </Link>| {this.props.children.bio} <Link to = {`/editor/journalists/${this.props.children.id}/edit`}>EDIT </Link></li>
+          <li><Link to = {`/editor/journalists/${this.props.children.id}`}>{this.props.children.name} </Link>| {this.props.children.bio} <Link to = {`/editor/journalists/${this.props.children.id}/edit`}>EDIT</Link></li>
       </div>
     )
   }
