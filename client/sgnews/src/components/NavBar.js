@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
-  const initialPath = "/"
+  let initialPath = "/"
   if (props.editor){
     initialPath += "editor/"
   }

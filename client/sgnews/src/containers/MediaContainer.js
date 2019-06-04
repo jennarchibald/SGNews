@@ -27,6 +27,9 @@ class MediaContainer extends Component{
     this.postNewArticle = this.postNewArticle.bind(this);
     this.postNewJournalist = this.postNewJournalist.bind(this);
     this.putUpdateJournalist = this.putUpdateJournalist.bind(this);
+
+    this.fakeLogin = this.fakeLogin.bind(this);
+    this.fakeLogout = this.fakeLogout.bind(this);
   }
 
   componentDidMount() {
@@ -140,125 +143,134 @@ class MediaContainer extends Component{
   };
 
 
-    render() {
-      return (
-        <Router>
-          <NavBar editor = {this.state.editorLogin}/>
-          <Switch>
-          <Route
-          exact path = "/"
-          render = {() => <MediaTitle title = "HomePage" />}
-          />
-          <Route
-          exact path = "/articles"
-          render = {() => <ArticleList articles = {this.state.articles} />}
-          />
-          <Route
-          exact path = "/journalists"
-          render = {() => <JournalistList journalists = {this.state.journalists} />}
-          />
-          <Route
-          exact path = "/editor"
-          render = {() => <EditorHomePage />}
-          />
-          <Route
-          exact path = "/editor/articles"
-          render = {() => <EditorArticleList articles = {this.state.articles} />}
-          />
-          <Route
-          exact path = "/editor/journalists"
-          render = {() => <EditorJournalistList journalists = {this.state.journalists} />}
-          />
-          <Route
-          exact path = "/editor/journalists/new"
-          render = {(props) => {
-        return (
-          <NewJournalistForm handleSubmit = {this.postNewJournalist}/>
-        )
-      }}
+  render() {
+    return (
+      <Router>
+      <NavBar
+      editor = {this.state.editorLogin}
+      />
+      <Switch>
+      <Route
+      exact path = "/"
+      render = {() => <MediaTitle title = "HomePage" />}
       />
       <Route
-      exact path ="/editor/articles/new"
-      render = {(props) => {
+      exact path = "/articles"
+      render = {() => <ArticleList articles = {this.state.articles} />}
+      />
+      <Route
+      exact path = "/journalists"
+      render = {() => <JournalistList journalists = {this.state.journalists} />}
+      />
+      <Route
+      exact path = "/editor"
+      render = {() => {
         return (
-          <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
+          <EditorHomePage
+          editor = {this.state.editorLogin}
+          logIn = {this.fakeLogin}
+          logOut = {this.fakeLogout}
+          />
         )}}
         />
         <Route
-        path = "/articles/:id"
+        exact path = "/editor/articles"
+        render = {() => <EditorArticleList articles = {this.state.articles} />}
+        />
+        <Route
+        exact path = "/editor/journalists"
+        render = {() => <EditorJournalistList journalists = {this.state.journalists} />}
+        />
+        <Route
+        exact path = "/editor/journalists/new"
         render = {(props) => {
-          const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
-          if (article){
-            return (
-              <FullArticleInfo article = {article} />
-            )} else {
+          return (
+            <NewJournalistForm handleSubmit = {this.postNewJournalist}/>
+          )
+        }}
+        />
+        <Route
+        exact path ="/editor/articles/new"
+        render = {(props) => {
+          return (
+            <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
+          )}}
+          />
+          <Route
+          path = "/articles/:id"
+          render = {(props) => {
+            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+            if (article){
               return (
-                <ErrorPage />
-              )
-            }}}
-            />
-            <Route
-            path = "/journalists/:id"
-            render = {(props) => {
-              const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
-              if (journalist){
+                <FullArticleInfo article = {article} />
+              )} else {
                 return (
-                  <FullJournalistInfo journalist = {journalist} />
-                )} else {
+                  <ErrorPage />
+                )
+              }}}
+              />
+              <Route
+              path = "/journalists/:id"
+              render = {(props) => {
+                const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                if (journalist){
                   return (
-                    <ErrorPage />
-                  )
-                }}}
-                />
-
-
-                <Route
-                exact path = "/editor/journalists/:id/edit"
-                render = {(props) => {
-                  const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
-                  if (journalist){
+                    <FullJournalistInfo journalist = {journalist} />
+                  )} else {
                     return (
-                      <EditJournalistForm journalist = {journalist} handleSubmit = {this.putUpdateJournalist}/>
-                    )} else {
+                      <ErrorPage />
+                    )
+                  }}}
+                  />
+
+
+                  <Route
+                  exact path = "/editor/journalists/:id/edit"
+                  render = {(props) => {
+                    const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                    if (journalist){
                       return (
-                        <ErrorPage />
-                      )
-                    }}}
-                    />
-
-                    <Route
-                    path = "/editor/articles/:id"
-                    render = {(props) => {
-                      const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
-                      if (article){
+                        <EditJournalistForm journalist = {journalist} handleSubmit = {this.putUpdateJournalist}/>
+                      )} else {
                         return (
-                          <FullArticleInfo article = {article} />
-                        )} else {
+                          <ErrorPage />
+                        )
+                      }}}
+                      />
+
+                      <Route
+                      path = "/editor/articles/:id"
+                      render = {(props) => {
+                        const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+                        if (article){
                           return (
-                            <ErrorPage />
-                          )
-                        }}}
-                        />
-                        <Route
-                        path = "/editor/journalists/:id"
-                        render = {(props) => {
-                          const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
-                          if (journalist){
+                            <FullArticleInfo article = {article} />
+                          )} else {
                             return (
-                              <EditorFullJournalistInfo journalist = {journalist} />
-                            )} else {
+                              <ErrorPage />
+                            )
+                          }}}
+                          />
+                          <Route
+                          path = "/editor/journalists/:id"
+                          render = {(props) => {
+                            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                            if (journalist){
                               return (
-                                <ErrorPage />
-                              )
-                            }}}
-                            />
+                                <EditorFullJournalistInfo journalist = {journalist} />
+                              )} else {
+                                return (
+                                  <ErrorPage />
+                                )
+                              }}}
+                              />
 
 
-                            </Switch>
-                            </Router>
+                              </Switch>
+                              </Router>
 
-                          );
+                            );
+                          }
                         }
-                      }
 
-                      export default MediaContainer;
+                        export default MediaContainer;
