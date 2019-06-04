@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import {Link} from 'react-router-dom';
 
-class FullJournalistInfo extends Component{
+class EditorFullJournalistInfo extends Component{
 
   render(){
     let articles = [];
@@ -18,10 +19,11 @@ class FullJournalistInfo extends Component{
         <h1>{this.props.journalist.name}</h1>
         <img src={this.props.journalist.image} alt = ""></img>
         <p>{this.props.journalist.bio}</p>
+        <Link to ={`/editor/journalists/${this.props.journalist.id}/edit`}>EDIT</Link>
         {articles}
         </div>
       )
     }
   }
 
-  export default FullJournalistInfo;
+  export default EditorFullJournalistInfo;
