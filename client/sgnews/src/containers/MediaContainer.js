@@ -10,6 +10,7 @@ import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
 import NewJournalistForm from '../components/NewJournalistForm';
+import EditJournalistForm from '../components/EditJournalistForm';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -165,6 +166,22 @@ class MediaContainer extends Component{
             )
           }}}
           />
+
+
+                    <Route
+                    exact path = "/editor/journalists/:id/edit"
+                    render = {(props) => {
+                      const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                      if (journalist){
+                      return (
+                      <EditJournalistForm journalist = {journalist} />
+                    )} else {
+                      return (
+                        <ErrorPage />
+                      )
+                    }}}
+                    />
+                    
           <Route
           path = "/editor/articles/:id"
           render = {(props) => {
@@ -191,7 +208,6 @@ class MediaContainer extends Component{
             )
           }}}
           />
-
 
 
           </Switch>

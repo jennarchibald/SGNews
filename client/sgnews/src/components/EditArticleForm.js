@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-class NewArticleForm extends Component {
+class EditArticleForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      category: "",
-      headline: "",
-      image: "",
-      journalist: "",
-      region: "",
-      storytext: "",
-      summary: ""
+      category: this.props.children.category,
+      headline: this.props.children.headline,
+      image: this.props.children.image,
+      journalist: this.props.children.journalist,
+      region: this.props.children.region,
+      storytext: this.props.children.storyText,
+      summary: this.props.children.summary
     }
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -60,6 +60,7 @@ class NewArticleForm extends Component {
             <input
             type = "text"
             name = "headline"
+            value = {this.state.headline}
             onChange = {this.handleHeadlineChange}/>
           </div>
 
@@ -68,6 +69,7 @@ class NewArticleForm extends Component {
             <input
             type="text"
             name="summary"
+            value = {this.state.summary}
             onChange = {this.handleSummaryChange}/>
           </div>
 
@@ -77,6 +79,7 @@ class NewArticleForm extends Component {
             type="text"
             rows="5" cols="40"
             name="storyText"
+            value = {this.state.storyText}
             onChange = {this.handleStoryTextChange}/>
           </div>
 
@@ -85,6 +88,7 @@ class NewArticleForm extends Component {
             <input
             type="text"
             name="region"
+            value = {this.state.region}
             onChange = {this.handleRegionChange}/>
           </div>
 
@@ -93,6 +97,7 @@ class NewArticleForm extends Component {
             <input
             type="text"
             name="catagory"
+            value = {this.state.category}
             onChange = {this.handleCategoryChange}/>
           </div>
 
@@ -101,6 +106,7 @@ class NewArticleForm extends Component {
             <input
             type="text"
             name="image"
+            value = {this.state.image}
             onChange = {this.handleImageChange}/>
           </div>
 
@@ -125,4 +131,4 @@ class NewArticleForm extends Component {
     }
   }
 
-export default NewArticleForm;
+export default EditArticleForm;
