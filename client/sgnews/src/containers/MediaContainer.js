@@ -11,6 +11,7 @@ import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
 import NewJournalistForm from '../components/NewJournalistForm';
 import EditJournalistForm from '../components/EditJournalistForm';
+import EditArticleForm from '../components/EditArticleForm';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -121,6 +122,32 @@ class MediaContainer extends Component{
     });
   }
 
+  putUpdateArticle(article){
+    const id = article.id
+    fetch("http://localhost:8080/articles/" + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(article)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((updatedArticle) => {
+      console.log(updatedArticle)
+      const article = this.findByID(this.state.articles, updatedArticle.id);
+      console.log(article)
+      const articleIndex = this.state.articles.indexOf(article);
+      const articles = this.state.articles;
+      articles[articleIndex] = updatedArticle;
+      this.setState(articles);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   findByID(array,id) {
       return array.find((element) => element.id === id);
   };
@@ -163,12 +190,25 @@ class MediaContainer extends Component{
           }}
           />
           <Route
-          exact path ="/editor/articles/new"
+          exact path ="/editor/articles/:id/edit"
           render = {(props) => {
-                return (
-                <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
-              )}}
+            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+            if (article){
+            return (
+              <EditArticleForm article = {article} journalists = {this.state.journalists} handleSubmit = {this.putUpdateArticle} />
+          )} else {
+            return (
+              <ErrorPage />
+            )}}}
             />
+            <Route
+            exact path ="/editor/articles/new"
+            render = {(props) => {
+                  return (
+                  <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
+                )}}
+              />
+
           <Route
           path = "/articles/:id"
           render = {(props) => {

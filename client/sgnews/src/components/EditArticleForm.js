@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
+
 
 class EditArticleForm extends Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class EditArticleForm extends Component {
       image: this.props.article.image,
       journalist: this.props.article.journalist,
       region: this.props.article.region,
-      storytext: this.props.article.storyText,
+      storyText: this.props.article.storyText,
       summary: this.props.article.summary
     }
 
@@ -102,7 +104,8 @@ class EditArticleForm extends Component {
         rows="5" cols="40"
         name="storyText"
         value = {this.state.storyText}
-        onChange = {this.handleStoryTextChange}/>
+        onChange = {this.handleStoryTextChange}
+        />
         </div>
 
         <div className="form_wrap" >
@@ -124,7 +127,7 @@ class EditArticleForm extends Component {
         <option
         value = {this.state.region}
         disabled>
-        Select a region
+        {this.state.region}
         </option>
         {regions.map((region, index) => {
           return(
@@ -143,11 +146,11 @@ class EditArticleForm extends Component {
         <select
         required
         onChange = {this.handleCategoryChange}
-        defaultValue = "default">
+        defaultValue = {this.state.category}>
         <option
         disabled
-        value = "default">
-        Select a category
+        value = {this.state.category}>
+        {this.state.category}
         </option>
         {categories.map((category, index) => {
           return(
@@ -166,10 +169,10 @@ class EditArticleForm extends Component {
         <select
         required
         onChange = {this.handleJournalistChange}
-        defaultValue="default">
+        defaultValue={this.state.journalist}>
         <option disabled
-        value = "default">
-        Select a journalist
+        value = {this.state.journalist}>
+        {this.state.journalist.name}
         </option>
         {this.props.journalists.map((journalist)=>
           <option
