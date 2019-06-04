@@ -20,7 +20,7 @@ class EditArticleForm extends Component {
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleHeadlineChange = this.handleHeadlineChange.bind(this);
-    this.handleImageChange = this.handleJournalistChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
     this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleStoryTextChange = this.handleStoryTextChange.bind(this);

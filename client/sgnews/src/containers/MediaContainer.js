@@ -115,7 +115,7 @@ class MediaContainer extends Component{
   putUpdateJournalist(journalist){
     const id = journalist.id
     fetch("http://localhost:8080/journalists/" + id, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -125,14 +125,16 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedJournalist) => {
-      console.log(updatedJournalist)
-      const articles = updatedJournalist["_embedded"].articles;
-      updatedJournalist.articles = articles;
+      // console.log(updatedJournalist)
+      // const articles = updatedJournalist["_embedded"].articles;
+      // updatedJournalist.articles = articles;
       const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
-      console.log(journalist)
+      // console.log(journalist)
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
-      journalists[journalistIndex] = updatedJournalist;
+      journalists[journalistIndex].bio = updatedJournalist.bio;
+      journalists[journalistIndex].name = updatedJournalist.name;
+      journalists[journalistIndex].image = updatedJournalist.image;
       this.setState(journalists);
     })
     .catch((error) => {
@@ -145,7 +147,7 @@ class MediaContainer extends Component{
     console.log(article)
     const id = article.id
     fetch("http://localhost:8080/articles/" + id, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
