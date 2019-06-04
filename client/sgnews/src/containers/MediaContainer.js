@@ -125,6 +125,20 @@ class MediaContainer extends Component{
     });
   }
 
+  deleteJournalist(journalist){
+    const id = journalist.id
+    fetch("http://localhost:8080/journalists/" + id, {
+      method: 'DELETE'
+    })
+    .then((res) => {
+      const journalist = this.findByID(journalists, id);
+      const journalistIndex = this.state.journalists.indexOf(journalist);
+      const journalists = this.state.journalists;
+      journalists.splice(journalistIndex, 1);
+      this.setState(journalists);
+    })
+  }
+
   findByID(array,id) {
     return array.find((element) => element.id === id);
   };
