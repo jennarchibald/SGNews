@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MediaTitle from '../components/MediaTitle';
 import ArticleList from '../components/ArticleList';
+import NewArticleForm from '../components/NewArticleForm';
 import JournalistList from '../components/JournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
@@ -132,6 +133,13 @@ class MediaContainer extends Component{
           }}
           />
           <Route
+          exact path ="/editor/articles/new"
+          render = {(props) => {
+                return (
+                <NewArticleForm journalists = {this.state.journalists} />
+              )}}
+            />
+          <Route
           path = "/articles/:id"
           render = {(props) => {
             const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
@@ -183,6 +191,9 @@ class MediaContainer extends Component{
             )
           }}}
           />
+
+
+
           </Switch>
         </Router>
 
