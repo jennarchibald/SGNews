@@ -24,6 +24,7 @@ class MediaContainer extends Component{
     this.postNewArticle = this.postNewArticle.bind(this);
     this.postNewJournalist = this.postNewJournalist.bind(this);
     this.putUpdateJournalist = this.putUpdateJournalist.bind(this);
+    this.putUpdateArticle = this.putUpdateArticle.bind(this);
   }
 
   componentDidMount() {
@@ -135,9 +136,9 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedArticle) => {
-      console.log(updatedArticle)
+      const journalist = updatedArticle["_embedded"].journalist;
+      updatedArticle.journalist = journalist;
       const article = this.findByID(this.state.articles, updatedArticle.id);
-      console.log(article)
       const articleIndex = this.state.articles.indexOf(article);
       const articles = this.state.articles;
       articles[articleIndex] = updatedArticle;

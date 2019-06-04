@@ -7,10 +7,12 @@ class EditArticleForm extends Component {
     super(props);
 
     this.state = {
+      id: this.props.article.id,
+      date: this.props.article.date,
       category: this.props.article.category,
       headline: this.props.article.headline,
       image: this.props.article.image,
-      journalist: this.props.article.journalist,
+      journalist: `http://localhost:8080/journalists/${this.props.article.journalist.id}`,
       region: this.props.article.region,
       storyText: this.props.article.storyText,
       summary: this.props.article.summary
@@ -23,6 +25,7 @@ class EditArticleForm extends Component {
     this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleStoryTextChange = this.handleStoryTextChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
 
@@ -47,12 +50,18 @@ class EditArticleForm extends Component {
   };
 
   handleStoryTextChange(event){
-    this.setState({storytext: event.target.value});
+    this.setState({storyText: event.target.value});
   };
 
   handleSummaryChange(event){
     this.setState({summary: event.target.value});
   };
+
+  handleFormSubmit(event){
+    event.preventDefault();
+    this.props.handleSubmit(this.state);
+    this.setState({redirect: true})
+  }
 
   render() {
     if (this.state.redirect){
@@ -103,7 +112,7 @@ class EditArticleForm extends Component {
         type="text"
         rows="5" cols="40"
         name="storyText"
-        value = {this.state.storyText}
+        defaultValue = {this.state.storyText}
         onChange = {this.handleStoryTextChange}
         />
         </div>
@@ -124,11 +133,6 @@ class EditArticleForm extends Component {
         required
         onChange = {this.handleRegionChange}
         defaultValue = {this.state.region}>
-        <option
-        value = {this.state.region}
-        disabled>
-        {this.state.region}
-        </option>
         {regions.map((region, index) => {
           return(
             <option
@@ -147,11 +151,6 @@ class EditArticleForm extends Component {
         required
         onChange = {this.handleCategoryChange}
         defaultValue = {this.state.category}>
-        <option
-        disabled
-        value = {this.state.category}>
-        {this.state.category}
-        </option>
         {categories.map((category, index) => {
           return(
             <option
@@ -165,19 +164,15 @@ class EditArticleForm extends Component {
         </div>
 
         <div className="form_wrap" >
-        <label htmlFor="journalist">journalist:</label>
+        <label htmlFor="journalist">Journalist:</label>
         <select
         required
         onChange = {this.handleJournalistChange}
         defaultValue={this.state.journalist}>
-        <option disabled
-        value = {this.state.journalist}>
-        {this.state.journalist.name}
-        </option>
         {this.props.journalists.map((journalist)=>
           <option
           key={journalist.id}
-          value={`http://localhost:8080/journalist/${journalist.id}`}>
+          value={`http://localhost:8080/journalists/${journalist.id}`}>
           {journalist.name}
           </option>)}
           </select>
