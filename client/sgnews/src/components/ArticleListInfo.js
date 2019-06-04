@@ -8,7 +8,7 @@ class ArticleListInfo extends Component {
     return (
       <div className="article-info">
 
-      <li><Link to = {`/articles/${this.props.children.id}`}>{this.props.children.headline} </Link>| {this.props.children.summary}</li>
+      <li><Link to = {`/articles/${this.props.children.id}`}>{this.props.children.headline} </Link> | {this.props.children.summary}</li>
       </div>
       );
     }

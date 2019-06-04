@@ -133,7 +133,7 @@ class MediaContainer extends Component{
     render() {
       return (
         <Router>
-          <NavBar/>
+          <NavBar />
           <Switch>
           <Route
           exact path = "/"

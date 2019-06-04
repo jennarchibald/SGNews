@@ -5,7 +5,7 @@ class FullArticleInfo extends Component {
     return (
       <div>
         <h1>{this.props.article.headline}</h1>
-        <h4>{this.props.article.date.substring(0, 11)}</h4>
+        <h4>{this.props.article.date.substring(0, 10)}</h4>
         <img src={this.props.article.image} alt={this.props.article.summary}></img>
         <h3>{this.props.article.summary}</h3>
         <p>{this.props.article.storyText}</p>

@@ -12,15 +12,13 @@ class FullJournalistInfo extends Component{
           </Fragment>
         )
       })}
+
     return(
         <div>
         <h1>{this.props.journalist.name}</h1>
         <img src={this.props.journalist.image} alt = ""></img>
-        <p>Bio: {this.props.journalist.bio}</p>
-        <p>Previous articles:</p>
-        <ul>
+        <p>{this.props.journalist.bio}</p>
         {articles}
-        </ul>
         </div>
       )
     }
