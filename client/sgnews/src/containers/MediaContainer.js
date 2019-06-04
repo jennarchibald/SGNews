@@ -12,6 +12,7 @@ import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
 import NewJournalistForm from '../components/NewJournalistForm';
+import EditJournalistForm from '../components/EditJournalistForm';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -23,6 +24,7 @@ class MediaContainer extends Component{
 
     this.postNewArticle = this.postNewArticle.bind(this);
     this.postNewJournalist = this.postNewJournalist.bind(this);
+    this.putUpdateJournalist = this.putUpdateJournalist.bind(this);
   }
 
   componentDidMount() {
@@ -52,11 +54,11 @@ class MediaContainer extends Component{
   postNewArticle(article){
     article.date = new Date();
     fetch("http://localhost:8080/articles", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(article)
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(article)
     })
     .then((res) => {
       return res.json();
@@ -76,11 +78,11 @@ class MediaContainer extends Component{
   postNewJournalist(journalist){
     journalist.articles = [];
     fetch("http://localhost:8080/journalists", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(journalist)
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(journalist)
     })
     .then((res) => {
       return res.json();
@@ -95,9 +97,36 @@ class MediaContainer extends Component{
     });
   }
 
+  putUpdateJournalist(journalist){
+    const id = journalist.id
+    fetch("http://localhost:8080/journalists/" + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(journalist)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((updatedJournalist) => {
+      console.log(updatedJournalist)
+      const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
+      console.log(journalist)
+      const journalistIndex = this.state.journalists.indexOf(journalist);
+      const journalists = this.state.journalists;
+      journalists[journalistIndex] = updatedJournalist;
+      this.setState(journalists);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   findByID(array,id) {
-      return array.find((element) => element.id === id);
+    return array.find((element) => element.id === id);
   };
+
 
     render() {
       return (
@@ -131,78 +160,93 @@ class MediaContainer extends Component{
           <Route
           exact path = "/editor/journalists/new"
           render = {(props) => {
+        return (
+          <NewJournalistForm handleSubmit = {this.postNewJournalist}/>
+        )
+      }}
+      />
+      <Route
+      exact path ="/editor/articles/new"
+      render = {(props) => {
+        return (
+          <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
+        )}}
+        />
+        <Route
+        path = "/articles/:id"
+        render = {(props) => {
+          const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+          if (article){
             return (
-              <NewJournalistForm handleSubmit = {this.postNewJournalist}/>
-            )
-          }}
-          />
-          <Route
-          exact path ="/editor/articles/new"
-          render = {(props) => {
-                return (
-                <NewArticleForm journalists = {this.state.journalists} handleSubmit = {this.postNewArticle} />
-              )}}
+              <FullArticleInfo article = {article} />
+            )} else {
+              return (
+                <ErrorPage />
+              )
+            }}}
             />
-          <Route
-          path = "/articles/:id"
-          render = {(props) => {
-            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
-            if (article){
-            return (
-            <FullArticleInfo article = {article} />
-          )} else {
-            return (
-              <ErrorPage />
-            )
-          }}}
-          />
-          <Route
-          path = "/journalists/:id"
-          render = {(props) => {
-            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
-            if (journalist){
-            return (
-            <FullJournalistInfo journalist = {journalist} />
-          )} else {
-            return (
-              <ErrorPage />
-            )
-          }}}
-          />
-          <Route
-          path = "/editor/articles/:id"
-          render = {(props) => {
-            const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
-            if (article){
-            return (
-            <FullArticleInfo article = {article} />
-          )} else {
-            return (
-              <ErrorPage />
-            )
-          }}}
-          />
-          <Route
-          path = "/editor/journalists/:id"
-          render = {(props) => {
-            const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
-            if (journalist){
-            return (
-            <FullJournalistInfo journalist = {journalist} />
-          )} else {
-            return (
-              <ErrorPage />
-            )
-          }}}
-          />
+            <Route
+            path = "/journalists/:id"
+            render = {(props) => {
+              const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+              if (journalist){
+                return (
+                  <FullJournalistInfo journalist = {journalist} />
+                )} else {
+                  return (
+                    <ErrorPage />
+                  )
+                }}}
+                />
 
 
+                <Route
+                exact path = "/editor/journalists/:id/edit"
+                render = {(props) => {
+                  const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                  if (journalist){
+                    return (
+                      <EditJournalistForm journalist = {journalist} handleSubmit = {this.putUpdateJournalist}/>
+                    )} else {
+                      return (
+                        <ErrorPage />
+                      )
+                    }}}
+                    />
 
-          </Switch>
-        </Router>
+                    <Route
+                    path = "/editor/articles/:id"
+                    render = {(props) => {
+                      const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
+                      if (article){
+                        return (
+                          <FullArticleInfo article = {article} />
+                        )} else {
+                          return (
+                            <ErrorPage />
+                          )
+                        }}}
+                        />
+                        <Route
+                        path = "/editor/journalists/:id"
+                        render = {(props) => {
+                          const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
+                          if (journalist){
+                            return (
+                              <FullJournalistInfo journalist = {journalist} />
+                            )} else {
+                              return (
+                                <ErrorPage />
+                              )
+                            }}}
+                            />
 
-      );
-    }
-  }
 
-  export default MediaContainer;
+                            </Switch>
+                            </Router>
+
+                          );
+                        }
+                      }
+
+                      export default MediaContainer;
