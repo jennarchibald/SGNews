@@ -144,7 +144,7 @@ class MediaContainer extends Component{
 
   deleteArticle(article){
     const id = article.id
-    fetch("http://localhost:8080/articles/" + id), {
+    fetch("http://localhost:8080/articles/" + id, {
       method: 'DELETE'
     })
     .then((res) => {
