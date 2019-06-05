@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import DeletePopover from './DeletePopover';
+import Button from '@material-ui/core/Button';
 
 class EditorFullJournalistInfo extends Component{
   constructor(props){
@@ -38,7 +39,11 @@ class EditorFullJournalistInfo extends Component{
           <img src={this.props.journalist.image} alt = ""></img>
           <p>{this.props.journalist.bio}</p>
 
-          <Link to ={`/editor/journalists/${this.props.journalist.id}/edit`}>EDIT</Link>
+          <Link to ={`/editor/journalists/${this.props.journalist.id}/edit`}>
+          <Button
+          variant="contained">
+          EDIT JOURNALIST INFO</Button></Link>
+
 
           <DeletePopover onDelete={this.handleDelete}></DeletePopover>
 
