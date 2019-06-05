@@ -28,11 +28,11 @@ class NavBar extends React.Component{
 
     return (
       <AppBar title="navbar">
-      <div className = "MuiTabs-root MuiTabs-scroller MuiTabs-fixed MuiTabs-flexContainer">
-      <Link to = "/">Home</Link>
-      <Link to = {`${initialPath}articles`}>Articles</Link>
-      <Link to = {`${initialPath}journalists`}>Journalists</Link>
-      <Link to = "/editor">Editor Login</Link>
+      <div className = "MuiTabs-flexContainer NavBar-container">
+      <Link className = "nav-link" to = "/">Home</Link>
+      <Link className = "nav-link" to = {`${initialPath}articles`}>Articles</Link>
+      <Link className = "nav-link" to = {`${initialPath}journalists`}>Journalists</Link>
+      <Link className = "nav-link editor-link" to = "/editor">Editor Login</Link>
       </div>
       </AppBar>
     )
