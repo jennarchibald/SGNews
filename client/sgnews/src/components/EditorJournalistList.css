@@ -1,0 +1,26 @@
+.editor-journalist-list-container {
+    /* background-color: yellow; */
+    /* padding: 0.3em; */
+
+}
+
+.editor-journalist-list-each-container {
+    /* background: linear-gradient(to right, #e65c005b , rgba(242, 200, 76, 0.671)); */
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.editor-journalist-list-each-container li {
+    display: grid;
+    justify-content: flex-start;
+    background :#e65c009c;
+    color: white;
+    margin: 0.2em 0 0.2em 0;
+    padding: 0.5em;
+}
+
+.editor-journalist-list-each-container a {
+    padding: 0.3em 0 0.3em 0;
+    color: white;
+}

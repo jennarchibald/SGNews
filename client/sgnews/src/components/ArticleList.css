@@ -1,0 +1,22 @@
+.article-list-container {
+    
+}
+
+.article-list-each-container {
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.article-list-each-container li {
+    display: grid;
+    justify-content: flex-start;
+    background :#e65c009c;
+    color: white;
+    margin: 0.2em 0 0.2em 0;
+    padding: 0.5em;
+}
+
+.article-list-each-container a {
+    padding: 0.3em 0 0.3em 0;
+    color: white;
+}

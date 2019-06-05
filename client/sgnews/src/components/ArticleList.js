@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleListInfo from './ArticleListInfo';
+import './ArticleList.css'
 
 class ArticleList extends Component {
   render() {
@@ -10,8 +11,8 @@ class ArticleList extends Component {
     });
 
     return (
-      <div className="media-list-container">
-      <ul>
+      <div className="article-list-container">
+      <ul className="article-list-each-container">
         {mediaNodes}
       </ul>
       </div>
