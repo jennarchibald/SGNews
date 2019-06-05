@@ -26,6 +26,13 @@ class EditorFullArticleInfo extends Component {
     } else {
       return (
         <div>
+        <div className = "editor-buttons">
+        <Link to = {`/editor/articles/${this.props.article.id}/edit`}>
+        <Button
+        variant="contained">
+        EDIT ARTICLE</Button></Link>
+        <DeletePopover onDelete={this.handleDelete}></DeletePopover>
+        </div>
         <title>{this.props.article.headline}</title>
         <h1>{this.props.article.headline}</h1>
         <p>Author: {this.props.article.journalist.name}</p>
@@ -37,11 +44,6 @@ class EditorFullArticleInfo extends Component {
         <p>{this.props.article.summary}</p>
         <p>{this.props.article.storyText}</p>
         <h4>Article written by {this.props.article.journalist.name}</h4>
-        <Link to = {`/editor/articles/${this.props.article.id}/edit`}>
-        <Button
-        variant="contained">
-        EDIT ARTICLE</Button></Link>
-        <DeletePopover onDelete={this.handleDelete}></DeletePopover>
 
         </div>
       );
