@@ -3,6 +3,16 @@ import {Link} from 'react-router-dom';
 import DeletePopover from './DeletePopover';
 
 class EditorFullArticleInfo extends Component {
+  constructor(props){
+    super(props);
+    this.handleDelete = this.handleDelete.bind(props);
+  }
+
+  handleDelete(){
+    console.log("Delete article logging")
+    this.props.deleteArticle(this.props.article)
+  }
+
   render() {
     return (
       <div>
@@ -16,7 +26,7 @@ class EditorFullArticleInfo extends Component {
         <p>{this.props.article.storyText}</p>
         <h4>Article written by {this.props.article.journalist.name}</h4>
 
-        <DeletePopover></DeletePopover>
+        <DeletePopover onDelete={this.props.handleDelete}></DeletePopover>
 
       </div>
       );

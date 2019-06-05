@@ -7,10 +7,9 @@ class EditorFullJournalistInfo extends Component{
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
   }
-
-  
+ 
   handleDelete(){
-    console.log("hello")
+    console.log("Delete journalist logging")
     this.props.deleteJournalist(this.props.journalist)
   }
 
