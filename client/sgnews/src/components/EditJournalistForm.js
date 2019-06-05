@@ -45,7 +45,8 @@ class EditJournalistForm extends React.Component {
     } else {
 
       return(
-        <form>
+        <form
+        onSubmit = {this.handleFormSubmit}>
         <label htmlFor = "name">Name:</label>
         <input
         id = "name"
@@ -64,7 +65,7 @@ class EditJournalistForm extends React.Component {
         value = {this.state.bio}
         onChange = {this.handleBioChange}/>
 
-        <input type = "submit" value = "submit" onClick = {this.handleFormSubmit}/>
+        <input type = "submit" value = "submit" />
         </form>
       )
     }

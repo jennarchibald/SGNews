@@ -87,7 +87,8 @@ class EditArticleForm extends Component {
     "EDUCATION",
     "ENTERTAINMENT"];
       return (
-        <form>
+        <form
+        onSubmit={this.handleFormSubmit}>
         <div className="form_wrap" >
         <label htmlFor="headline">Headline:</label>
         <input
@@ -183,7 +184,7 @@ class EditArticleForm extends Component {
 
           </div>
 
-          <input onClick={this.handleFormSubmit} type="submit" value="submit" />
+          <input  type="submit" value="submit" />
 
           </form>
         )};
