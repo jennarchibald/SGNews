@@ -17,6 +17,7 @@ import NewJournalistForm from '../components/NewJournalistForm';
 import EditJournalistForm from '../components/EditJournalistForm';
 import EditArticleForm from '../components/EditArticleForm';
 import ArticleFilterSelect from '../components/ArticleFilterSelect';
+import Footer from '../components/Footer';
 
 class MediaContainer extends Component{
   constructor(props) {
@@ -399,6 +400,7 @@ class MediaContainer extends Component{
 
 
                                       </Switch>
+                                      <Footer/>
                                       </Router>
 
                                     );
