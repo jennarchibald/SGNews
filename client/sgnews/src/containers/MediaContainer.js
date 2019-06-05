@@ -144,7 +144,6 @@ class MediaContainer extends Component{
 
 
   putUpdateArticle(article){
-    console.log(article)
     const id = article.id
     fetch("http://localhost:8080/articles/" + id, {
       method: 'PATCH',
@@ -177,7 +176,7 @@ class MediaContainer extends Component{
       method: 'DELETE'
     })
     .then((res) => {
-      const journalist = this.findByID(journalists, id);
+      const journalist = this.findByID(this.state.journalists, id);
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
       journalists.splice(journalistIndex, 1);
@@ -194,11 +193,11 @@ class MediaContainer extends Component{
       method: 'DELETE'
     })
     .then((res) => {
-      const article = this.findByID(articles, id);
+      const article = this.findByID(this.state.articles, id);
       const articleIndex = this.state.articles.indexOf(article);
-      const articles = this.state.articles;
-      articles.splice(articleIndex, 1);
-      this.setState(articles);
+      const newArticles = this.state.articles;
+      newArticles.splice(articleIndex, 1);
+      this.setState({articles: newArticles});
     })
     .catch((error) => {
       console.log(error);
