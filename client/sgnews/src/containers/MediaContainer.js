@@ -32,6 +32,8 @@ class MediaContainer extends Component{
     this.postNewJournalist = this.postNewJournalist.bind(this);
     this.putUpdateJournalist = this.putUpdateJournalist.bind(this);
     this.putUpdateArticle = this.putUpdateArticle.bind(this);
+    this.deleteJournalist = this.deleteJournalist.bind(this);
+    this.deleteArticle = this.deleteArticle.bind(this);
 
     this.fakeLogin = this.fakeLogin.bind(this);
     this.fakeLogout = this.fakeLogout.bind(this);
@@ -220,7 +222,7 @@ class MediaContainer extends Component{
       const articleIndex = this.state.articles.indexOf(article);
       const newArticles = this.state.articles;
       newArticles.splice(articleIndex, 1);
-      this.setState({articles: newArticles});
+      this.setState({articles: newArticles, selectedArticles: newArticles});
     })
     .catch((error) => {
       console.log(error);
@@ -324,7 +326,8 @@ class MediaContainer extends Component{
                   )}}
                   />
 
-                  <Route                  path = "/articles/:id"
+                  <Route
+                  path = "/articles/:id"
                   render = {(props) => {
                     const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
                     if (article){
@@ -371,7 +374,9 @@ class MediaContainer extends Component{
                                 const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
                                 if (article){
                                   return (
-                                    <EditorFullArticleInfo article = {article} />
+                                    <EditorFullArticleInfo
+                                    article = {article}
+                                    deleteArticle = {this.deleteArticle} />
                                   )} else {
                                     return (
                                       <ErrorPage />

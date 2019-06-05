@@ -13,8 +13,7 @@ class FullJournalistInfo extends Component{
           </Fragment>
         )
       })}
-
-    return(
+      return(
         <div>
         <h1>{this.props.journalist.name}</h1>
         <img src={this.props.journalist.image} alt = ""></img>
@@ -23,6 +22,7 @@ class FullJournalistInfo extends Component{
         </div>
       )
     }
+    
   }
 
   export default FullJournalistInfo;
