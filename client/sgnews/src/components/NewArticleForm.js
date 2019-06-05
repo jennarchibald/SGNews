@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import './ArticleForm.css'
 
 class NewArticleForm extends Component {
   constructor(props) {
@@ -83,7 +84,8 @@ class NewArticleForm extends Component {
     "ENTERTAINMENT"];
       return (
         <form
-        onSubmit={this.handleFormSubmit}>
+        onSubmit={this.handleFormSubmit}
+        className = "new-journalist-form">
         <div className="form_wrap" >
         <label htmlFor="headline">Headline:</label>
         <input
@@ -125,6 +127,7 @@ class NewArticleForm extends Component {
         <label htmlFor="region">Region:</label>
         <select
         required
+        className = "article-form-select"
         onChange = {this.handleRegionChange}
         defaultValue = "default">
         <option
@@ -147,6 +150,7 @@ class NewArticleForm extends Component {
         <div className="form_wrap" >
         <label htmlFor="category">Category:</label>
         <select
+        className = "article-form-select"
         required
         onChange = {this.handleCategoryChange}
         defaultValue = "default">
@@ -168,9 +172,10 @@ class NewArticleForm extends Component {
         </div>
 
         <div className="form_wrap" >
-        <label htmlFor="journalist">journalist:</label>
+        <label htmlFor="journalist">Journalist:</label>
         <select
         required
+        className = "article-form-select"
         onChange = {this.handleJournalistChange}
         defaultValue="default">
         <option disabled
@@ -186,9 +191,10 @@ class NewArticleForm extends Component {
           </select>
 
           </div>
-
-          <input  type="submit" value="submit" />
-
+          <div className = "submit-button">
+          <label></label>
+          <input  type="submit" value="Submit" />
+          </div>
           </form>
         )};
       }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-
+import './ArticleForm.css'
 
 class EditArticleForm extends Component {
   constructor(props) {
@@ -184,8 +184,10 @@ class EditArticleForm extends Component {
 
           </div>
 
-          <input  type="submit" value="submit" />
-
+          <div className = "submit-button">
+          <label></label>
+          <input  type="submit" value="Submit" />
+          </div>
           </form>
         )};
       }
