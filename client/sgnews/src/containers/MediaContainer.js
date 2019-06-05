@@ -83,7 +83,7 @@ class MediaContainer extends Component{
       const articles = this.state.articles;
       const newArticle = postedArticle;
       newArticle.journalist = postedArticle["_embedded"].journalist;
-      articles.push(newArticle);
+      articles.unshift(newArticle);
       this.setState({articles: articles});
     })
     .catch((error) => {
