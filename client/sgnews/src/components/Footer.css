@@ -12,3 +12,8 @@
   height: 2em;
   width: 2em;
 }
+
+footer.footer {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
