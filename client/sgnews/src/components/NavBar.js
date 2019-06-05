@@ -1,10 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-
 
 const NavBar = (props) => {
   let initialPath = "/"
@@ -14,7 +11,7 @@ const NavBar = (props) => {
 
   return (
     <AppBar title="navbar">
-      <Tabs position="static" value={false}>
+      <Tabs value={false}>
         <Tab label = "Home" href = "/"/>
         <Tab label = "Articles" href = {`${initialPath}articles`}/>
         <Tab label = "Journalists" href = {`${initialPath}journalists`}/>
