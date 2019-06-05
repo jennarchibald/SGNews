@@ -68,6 +68,27 @@ public class DataLoader implements ApplicationRunner {
                 "After probable cause had been determined, police invited him down to the station, where they had staged a faux interview. When Lopez arrived, expecting a job, the officers arrested him for felony theft instead. Safe to say, Lopez is officially out of the running for a job with the department.", "https://allthatsinteresting.com/wordpress/wp-content/uploads/2018/01/alberto-lopez-theft.jpg", jenn, "2019-04-12", Category.POLITICS, Region.STRATHCLYDE);
         articleRepository.save(article5);
 
+        Article article6 = new Article("French tourist's appeal after camera full of topless snaps lost on Skye", "");
+        articleRepository.save(article6);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
+        Article article = new Article();
+        articleRepository.save(article);
+
 
     }
 }
