@@ -40,3 +40,7 @@
 .delete-popover-text-container {
   
 }
+
+body {
+  padding: 7em;
+}
