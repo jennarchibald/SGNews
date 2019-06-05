@@ -343,7 +343,7 @@ class MediaContainer extends Component{
                                     const journalist = this.findByID(this.state.journalists, parseInt(props.match.params.id));
                                     if (journalist){
                                       return (
-                                        <EditorFullJournalistInfo journalist = {journalist} />
+                                        <EditorFullJournalistInfo journalist = {journalist} deleteJournalist={this.deleteJournalist} />
                                       )} else {
                                         return (
                                           <ErrorPage />
