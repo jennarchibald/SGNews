@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import './FullArticleInfo.css';
 
 class FullArticleInfo extends Component {
   render() {
     return (
       <div>
+        <title>{this.props.article.headline}</title>
         <h1>{this.props.article.headline}</h1>
-        <h4>{this.props.article.date.substring(0, 10)}</h4>
+        <p>Author: {this.props.article.journalist.name} Published: {this.props.article.date.substring(0, 10)}</p>
+        <h3>{this.props.category}</h3>
+        <div className="image-wrapper">
         <img src={this.props.article.image} alt={this.props.article.summary}></img>
-        <h3>{this.props.article.summary}</h3>
+        </div>
+        <p>{this.props.article.summary}</p>
         <p>{this.props.article.storyText}</p>
-        <h4>Article written by {this.props.article.journalist.name}</h4>
       </div>
       );
     }

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import './FullJournalistInfo.css';
 
 class FullJournalistInfo extends Component{
 
