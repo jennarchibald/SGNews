@@ -9,3 +9,7 @@ img.journalist-photo {
   height: auto;
   float: right;
 }
+
+li > a {
+  color: black;
+}

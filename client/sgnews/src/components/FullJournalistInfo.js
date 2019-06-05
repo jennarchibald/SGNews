@@ -10,7 +10,8 @@ class FullJournalistInfo extends Component{
       articles = this.props.journalist.articles.map((article, index) =>{
         return (
           <Fragment key = {index} >
-          <li ><Link to = {`/articles/${article.id}`}>{article.headline}</Link></li>
+          <li ><Link
+          to = {`/articles/${article.id}`}>{article.headline}</Link></li>
           </Fragment>
         )
       })}
