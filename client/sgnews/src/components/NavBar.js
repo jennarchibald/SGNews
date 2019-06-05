@@ -1,18 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+
 
 const NavBar = (props) => {
   let initialPath = "/"
   if (props.editor){
     initialPath += "editor/"
   }
+
   return (
-    <ul className = "nav-bar">
-      <li><Link to = "/">Home</Link></li>
-      <li><Link to = {`${initialPath}articles`}>Articles</Link></li>
-      <li><Link to = {`${initialPath}journalists`}>Journalists</Link></li>
-      <li><Link to = "/editor">Editor Login</Link></li>
-    </ul>
+    <AppBar title="navbar">
+      <Tabs position="static" value={false}>
+        <Tab label = "Home" href = "/"/>
+        <Tab label = "Articles" href = {`${initialPath}articles`}/>
+        <Tab label = "Journalists" href = {`${initialPath}journalists`}/>
+        <Tab label = "Editor login" href = "/editor"/>
+      </Tabs>
+    </AppBar>
   )
 }
 

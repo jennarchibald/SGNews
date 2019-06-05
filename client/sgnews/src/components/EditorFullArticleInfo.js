@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './FullArticleInfo.css';
+import DeletePopover from './DeletePopover';
 
 class EditorFullArticleInfo extends Component {
   render() {
@@ -17,6 +18,9 @@ class EditorFullArticleInfo extends Component {
         <p>{this.props.article.summary}</p>
         <p>{this.props.article.storyText}</p>
         <h4>Article written by {this.props.article.journalist.name}</h4>
+
+        <DeletePopover></DeletePopover>
+
       </div>
       );
     }
