@@ -7,14 +7,20 @@ class NavBar extends React.Component{
 
   render(){
 
+    let id = "";
+
     let initialPath = "/"
+
     if (this.props.editor){
       initialPath += "editor/"
+      id += "private-nav"
+    } else {
+      id += "public-nav"
     }
 
     return (
       <AppBar title="navbar">
-      <div className = "MuiTabs-flexContainer NavBar-container">
+      <div className = "MuiTabs-flexContainer NavBar-container" id = {id}>
       <Link className = "nav-link" to = "/">Home</Link>
       <Link className = "nav-link" to = {`${initialPath}articles`}>Articles</Link>
       <Link className = "nav-link" to = {`${initialPath}journalists`}>Journalists</Link>
