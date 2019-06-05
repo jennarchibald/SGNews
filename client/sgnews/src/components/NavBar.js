@@ -24,7 +24,7 @@ class NavBar extends React.Component{
       <Link className = "nav-link" to = "/">Home</Link>
       <Link className = "nav-link" to = {`${initialPath}articles`}>Articles</Link>
       <Link className = "nav-link" to = {`${initialPath}journalists`}>Journalists</Link>
-      <Link className = "nav-link editor-link" to = "/editor">Editor Login</Link>
+      <Link className = "nav-link editor-link" to = "/editor">Editor Portal</Link>
       </div>
       </AppBar>
     )
