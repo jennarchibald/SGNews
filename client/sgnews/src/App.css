@@ -43,4 +43,21 @@
 
 body {
   padding: 7em;
+  background: linear-gradient(to right, rgba(172, 83, 0, 0.068) , rgba(0, 0, 0, 0), #fceabe11);
 }
+
+body::after {
+  content: "";
+  background-image: url("/images/background_newspaper.jpg");
+  background-repeat: repeat;
+  opacity: 0.015;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+ }
+
+
+/* ../public/images/background_newspaper.jpg */

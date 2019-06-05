@@ -1,7 +1,26 @@
-.MuiTabs-flexContainer {
-    background: linear-gradient(to right, #e65c00 , #fceabe);
+
+
+#private-nav {
+  background: linear-gradient(to right, black, black, black, black, black, #e65c00);
 }
 
-.MuiTabs-wrapper {
+#public-nav {
+  background: linear-gradient(to right, #e65c00 , #e65c00, #e65c00, #e65c00, #e65c00, #fceabe);
+}
 
+.NavBar-container {
+  height: 3.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.editor-link {
+  margin-right: 25em;
 }

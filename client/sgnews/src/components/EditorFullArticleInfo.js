@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import './FullArticleInfo.css';
 import DeletePopover from './DeletePopover';
+import Button from '@material-ui/core/Button';
 
 class EditorFullArticleInfo extends Component {
   constructor(props){
@@ -29,14 +30,17 @@ class EditorFullArticleInfo extends Component {
         <h1>{this.props.article.headline}</h1>
         <p>Author: {this.props.article.journalist.name}</p>
         <p>Published:{this.props.article.date.substring(0, 10)}</p>
-        <Link to = {`/editor/articles/${this.props.article.id}/edit`}>EDIT</Link>
+
         <div className="image-wrapper">
         <img src={this.props.article.image} alt={this.props.article.summary}></img>
         </div>
         <p>{this.props.article.summary}</p>
         <p>{this.props.article.storyText}</p>
         <h4>Article written by {this.props.article.journalist.name}</h4>
-
+        <Link to = {`/editor/articles/${this.props.article.id}/edit`}>
+        <Button
+        variant="contained">
+        EDIT ARTICLE</Button></Link>
         <DeletePopover onDelete={this.handleDelete}></DeletePopover>
 
         </div>

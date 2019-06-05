@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './ArticleFilterSelect.css'
 
 class ArticleFilterSelect extends React.Component{
   constructor(props){
@@ -72,6 +72,7 @@ class ArticleFilterSelect extends React.Component{
     return(
       <>
       <select
+      className = "article-filter-select region-select"
       onChange = {this.handleRegionChange}
       defaultValue = "ALL">
       <option
@@ -81,6 +82,7 @@ class ArticleFilterSelect extends React.Component{
       </select>
 
       <select
+      className = "article-filter-select category-select"
       onChange = {this.handleCategoryChange}
       defaultValue = "ALL">
       <option

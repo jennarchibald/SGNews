@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JournalistListInfo from './JournalistListInfo';
+import './JournalistList.css';
 
 class JournalistList extends Component {
     render(){
@@ -11,7 +12,7 @@ class JournalistList extends Component {
 
         return(
             <div className="journalist-list-container">
-                <ul>
+                <ul className="journalist-list-each-container">
                     {journalistNodes}
                 </ul>
             </div>
