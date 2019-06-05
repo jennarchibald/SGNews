@@ -1,0 +1,23 @@
+.delete-popover-text-contain {
+  padding: 1em;
+}
+
+.delete-confirm-button {
+  display:flex;
+  justify-content: center;
+  padding:5px 15px;
+  background:#e0e0e0;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0.2em 0.2em 0.5em #ababab;
+  font-size: 1.1em;
+}
+
+.delete-popover-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

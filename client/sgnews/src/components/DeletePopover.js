@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import './DeletePopover.css'
 
 const useStyles = makeStyles(theme => ({
  typography: {
@@ -30,6 +31,7 @@ function SimplePopover(props) {
      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
        Delete
      </Button>
+     <div className = "popover-wrapper">
      <Popover
        id={id}
        open={open}
@@ -45,14 +47,17 @@ function SimplePopover(props) {
        }}
      >
        <div className="delete-popover-container">
-         <div className="delelete-popover-text-contain">
+         <div className="delete-popover-text-contain">
          Are you sure you'd like to delete?
          </div>
        <Typography className={classes.typography}>
-         <button onClick={props.onDelete}>Delete</button>
+         <button
+         className = "delete-confirm-button"
+         onClick={props.onDelete}>Delete</button>
        </Typography>
        </div>
      </Popover>
+     </div>
    </div>
  );
 }
