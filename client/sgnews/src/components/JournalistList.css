@@ -1,0 +1,23 @@
+.journalist-list-container {
+    background-color: yellow;
+    padding: 1em;
+
+}
+
+.journalist-list-each-container {
+    background-color: orange;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.journalist-list-each-container li {
+    display: flex;
+    justify-content: center;
+    
+    background-color: red;
+    margin: 1em 0 1em 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0.5em;
+}

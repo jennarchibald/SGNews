@@ -12,7 +12,7 @@ class JournalistList extends Component {
 
         return(
             <div className="journalist-list-container">
-                <ul>
+                <ul className="journalist-list-each-container">
                     {journalistNodes}
                 </ul>
             </div>
