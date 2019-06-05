@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import './JournalistForm.css';
 
 class NewJournalistForm extends React.Component {
   constructor(props){
@@ -44,28 +45,42 @@ class NewJournalistForm extends React.Component {
     } else {
 
       return(
+        <div>
         <form
-        onSubmit = {this.handleFormSubmit}>
+        onSubmit = {this.handleFormSubmit}
+        className="journalist-form">
+        <div className="form-wrap">
         <label htmlFor = "name">Name:</label>
         <input
+        type="text"
         id = "name"
         value = {this.state.name}
-        onChange = {this.handleNameChange}/>
+        onChange = {this.handleNameChange}/></div>
 
+        <div className="form-wrap">
         <label htmlFor = "image">Image URL:</label>
         <input
+        type="text"
         id = "image"
         value = {this.state.image}
-        onChange = {this.handleImageChange}/>
+        onChange = {this.handleImageChange}/></div>
 
+        <div className="form-wrap">
         <label htmlFor = "bio">Biography:</label>
         <input
+        type="text"
         id = "bio"
         value = {this.state.bio}
-        onChange = {this.handleBioChange}/>
+        onChange = {this.handleBioChange}/></div>
 
+
+
+        <div className="submit-button">
+        <label> </label>
         <input type = "submit" value = "submit" />
+        </div>
         </form>
+        </div>
       )
     }
   }
