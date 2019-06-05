@@ -244,7 +244,7 @@ class MediaContainer extends Component{
       <Switch>
       <Route
       exact path = "/"
-      render = {() => <MediaTitle title = "HomePage" />}
+      render = {() => <MediaTitle title = "SGNews" />}
       />
       <Route
       exact path = "/articles"
