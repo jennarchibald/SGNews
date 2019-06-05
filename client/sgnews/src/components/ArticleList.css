@@ -1,4 +1,4 @@
-.article-list-container {
+/* .article-list-container {
     
 }
 
@@ -15,8 +15,36 @@
     margin: 0.2em 0 0.2em 0;
     padding: 0.5em;
 }
+*/
 
 .article-list-each-container a {
     padding: 0.3em 0 0.3em 0;
     color: white;
+} */
+
+.article-list-container ul {
+    position: relative;
+    width: 450px;
+    margin: 100px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.article-list-container ul li {
+    display: flex;
+    flex-direction: column;
+    background: #e65c009c;
+    padding: 0.5em 1em;
+    color: #fff;
+    margin: 0.5em 0;
+    transition: .5s;
+}
+
+.article-list-container ul li:nth-child(odd) {
+    background: #e07008a6;
+}
+
+.article-list-container ul li:hover {
+    transform: scale(1.06);
+    background: #e65c00f8;
 }

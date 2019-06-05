@@ -1,11 +1,11 @@
 
 
 #private-nav {
-  background: linear-gradient(to right, black, black, black, black, black, #e65c00);
+  background: linear-gradient(to right, black, black, black, black, black, black, #e65c00);
 }
 
 #public-nav {
-  background: linear-gradient(to right, #e65c00 , #e65c00, #e65c00, #e65c00, #e65c00, #fceabe);
+  background: linear-gradient(to right, #e65c00 , #e65c00, #e65c00, #e65c00, #e65c00, #e65c00, #fceabe);
 }
 
 .NavBar-container {

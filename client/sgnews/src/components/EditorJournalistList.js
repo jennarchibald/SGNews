@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EditorJournalistListInfo from './EditorJournalistListInfo';
-import './JournalistList.css'
+import './EditorJournalistList.css'
 
 class EditorJournalistList extends Component {
     render(){
@@ -11,8 +11,8 @@ class EditorJournalistList extends Component {
         });
 
         return(
-            <div className="journalist-list-container">
-                <ul className="journalist-list-each-container">
+            <div className="editor-journalist-list-container">
+                <ul className="editor-journalist-list-each-container">
                     {journalistNodes}
                 </ul>
             </div>

@@ -1,12 +1,8 @@
-.editor-journalist-list-container {
-    /* background-color: yellow; */
-    /* padding: 0.3em; */
+/* .editor-journalist-list-container {
 
 }
 
 .editor-journalist-list-each-container {
-    /* background: linear-gradient(to right, #e65c005b , rgba(242, 200, 76, 0.671)); */
-    /* border: 1px solid black; */
     border-radius: 5px;
     padding: 0.5em;
 }
@@ -23,4 +19,37 @@
 .editor-journalist-list-each-container a {
     padding: 0.3em 0 0.3em 0;
     color: white;
+} */
+
+.editor-journalist-list-each-container a {
+    padding: 0.3em 0 0.3em 0;
+    color: white;
+} */
+
+.editor-journalist-list-container ul {
+    position: relative;
+    width: 450px;
+    margin: 100px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
 }
+
+.editor-journalist-list-container ul li {
+    display: flex;
+    flex-direction: column;
+    background: #e65c009c;
+    padding: 0.5em 1em;
+    color: #fff;
+    margin: 0.5em 0;
+    transition: .5s;
+}
+
+.editor-journalist-list-container ul li:nth-child(odd) {
+    background: #e07008a6;
+}
+
+.editor-journalist-list-container ul li:hover {
+    transform: scale(1.06);
+    background: #e65c00f8;
+}
+
