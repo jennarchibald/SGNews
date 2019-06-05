@@ -25,7 +25,7 @@ class EditorFullJournalistInfo extends Component{
       articles = this.props.journalist.articles.map((article, index) =>{
         return (
           <Fragment key = {index} >
-          <li >{article.headline}</li>
+          <li ><Link to = {`/editor/articles/${article.id}`}>{article.headline}</Link></li>
           </Fragment>
         )
       })}

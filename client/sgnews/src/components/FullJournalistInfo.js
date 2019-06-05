@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import {Link} from 'react-router-dom';
 import './FullJournalistInfo.css';
 
 class FullJournalistInfo extends Component{
@@ -9,7 +10,7 @@ class FullJournalistInfo extends Component{
       articles = this.props.journalist.articles.map((article, index) =>{
         return (
           <Fragment key = {index} >
-          <li >{article.headline}</li>
+          <li ><Link to = {`/articles/${article.id}`}>{article.headline}</Link></li>
           </Fragment>
         )
       })}
