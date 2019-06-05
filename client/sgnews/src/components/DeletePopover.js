@@ -44,9 +44,14 @@ function SimplePopover(props) {
          horizontal: 'center',
        }}
      >
+       <div className="delete-popover-container">
+         <div className="delelete-popover-text-contain">
+         Are you sure you'd like to delete?
+         </div>
        <Typography className={classes.typography}>
-         <button onClick={props.onDelete}></button>
+         <button onClick={props.onDelete}>Delete</button>
        </Typography>
+       </div>
      </Popover>
    </div>
  );
