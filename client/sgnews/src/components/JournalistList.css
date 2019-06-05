@@ -5,8 +5,8 @@
 }
 
 .journalist-list-each-container {
-    background: linear-gradient(to right, #e65c005b , rgba(242, 200, 76, 0.671));
-    border: 2px solid black;
+    /* background: linear-gradient(to right, #e65c005b , rgba(242, 200, 76, 0.671)); */
+    /* border: 1px solid black; */
     border-radius: 5px;
     padding: 0.5em;
 }
@@ -15,7 +15,7 @@
     display: grid;
     justify-content: flex-start;
     /* width:30em; */
-    background: linear-gradient(to right, #e65c00 , rgba(253, 151, 34, 0.651));
+    background: linear-gradient(to right, #e65c0081 , rgba(253, 151, 34, 0.336));
     color: white;
     margin: 0.5em 0 0.5em 0;
     border: 1px solid black;
