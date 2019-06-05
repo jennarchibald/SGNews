@@ -1,23 +1,29 @@
 .journalist-list-container {
-    background-color: yellow;
-    padding: 1em;
+    /* background-color: yellow; */
+    /* padding: 0.3em; */
 
 }
 
 .journalist-list-each-container {
-    background-color: orange;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 1em;
-}
-
-.journalist-list-each-container li {
-    display: flex;
-    justify-content: center;
-    
-    background-color: red;
-    margin: 1em 0 1em 0;
+    background: linear-gradient(to right, #e65c005b , rgba(242, 200, 76, 0.671));
     border: 2px solid black;
     border-radius: 5px;
     padding: 0.5em;
+}
+
+.journalist-list-each-container li {
+    display: grid;
+    justify-content: flex-start;
+    /* width:30em; */
+    background: linear-gradient(to right, #e65c00 , rgba(253, 151, 34, 0.651));
+    color: white;
+    margin: 0.5em 0 0.5em 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.journalist-list-each-container a {
+    padding: 0.3em 0 0.3em 0;
+    color: white;
 }
