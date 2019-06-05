@@ -14,12 +14,9 @@
 .journalist-list-each-container li {
     display: grid;
     justify-content: flex-start;
-    /* width:30em; */
-    background: linear-gradient(to right, #e65c0081 , rgba(253, 151, 34, 0.336));
+    background :#e65c009c;
     color: white;
-    margin: 0.5em 0 0.5em 0;
-    border: 1px solid black;
-    border-radius: 5px;
+    margin: 0.2em 0 0.2em 0;
     padding: 0.5em;
 }
 
