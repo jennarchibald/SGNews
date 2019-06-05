@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
  },
 }));
 
-function SimplePopover() {
+function SimplePopover(props) {
  const classes = useStyles();
  const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -44,7 +44,14 @@ function SimplePopover() {
          horizontal: 'center',
        }}
      >
-       <Typography className={classes.typography}>The content of the Popover.</Typography>
+       <div className="delete-popover-container">
+         <div className="delelete-popover-text-contain">
+         Are you sure you'd like to delete?
+         </div>
+       <Typography className={classes.typography}>
+         <button onClick={props.onDelete}>Delete</button>
+       </Typography>
+       </div>
      </Popover>
    </div>
  );

@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+.delete-popover-container {
+ display: grid;
+ align-content: center;
+}
+
+.delete-popover-text-container {
+  
+}
