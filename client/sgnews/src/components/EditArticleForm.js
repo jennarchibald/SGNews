@@ -20,7 +20,7 @@ class EditArticleForm extends Component {
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleHeadlineChange = this.handleHeadlineChange.bind(this);
-    this.handleImageChange = this.handleJournalistChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
     this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleStoryTextChange = this.handleStoryTextChange.bind(this);
@@ -87,7 +87,8 @@ class EditArticleForm extends Component {
     "EDUCATION",
     "ENTERTAINMENT"];
       return (
-        <form>
+        <form
+        onSubmit={this.handleFormSubmit}>
         <div className="form_wrap" >
         <label htmlFor="headline">Headline:</label>
         <input
@@ -183,7 +184,7 @@ class EditArticleForm extends Component {
 
           </div>
 
-          <input onClick={this.handleFormSubmit} type="submit" value="submit" />
+          <input  type="submit" value="submit" />
 
           </form>
         )};

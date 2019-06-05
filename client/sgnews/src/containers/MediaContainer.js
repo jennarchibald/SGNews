@@ -83,7 +83,7 @@ class MediaContainer extends Component{
       const articles = this.state.articles;
       const newArticle = postedArticle;
       newArticle.journalist = postedArticle["_embedded"].journalist;
-      articles.push(newArticle);
+      articles.unshift(newArticle);
       this.setState({articles: articles});
     })
     .catch((error) => {
@@ -116,7 +116,7 @@ class MediaContainer extends Component{
   putUpdateJournalist(journalist){
     const id = journalist.id
     fetch("http://localhost:8080/journalists/" + id, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -126,14 +126,16 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedJournalist) => {
-      console.log(updatedJournalist)
-      const articles = updatedJournalist["_embedded"].articles;
-      updatedJournalist.articles = articles;
+      // console.log(updatedJournalist)
+      // const articles = updatedJournalist["_embedded"].articles;
+      // updatedJournalist.articles = articles;
       const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
-      console.log(journalist)
+      // console.log(journalist)
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
-      journalists[journalistIndex] = updatedJournalist;
+      journalists[journalistIndex].bio = updatedJournalist.bio;
+      journalists[journalistIndex].name = updatedJournalist.name;
+      journalists[journalistIndex].image = updatedJournalist.image;
       this.setState(journalists);
     })
     .catch((error) => {
@@ -143,10 +145,9 @@ class MediaContainer extends Component{
 
 
   putUpdateArticle(article){
-    console.log(article)
     const id = article.id
     fetch("http://localhost:8080/articles/" + id, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -176,7 +177,7 @@ class MediaContainer extends Component{
       method: 'DELETE'
     })
     .then((res) => {
-      const journalist = this.findByID(journalists, id);
+      const journalist = this.findByID(this.state.journalists, id);
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
       journalists.splice(journalistIndex, 1);
@@ -193,11 +194,11 @@ class MediaContainer extends Component{
       method: 'DELETE'
     })
     .then((res) => {
-      const article = this.findByID(articles, id);
+      const article = this.findByID(this.state.articles, id);
       const articleIndex = this.state.articles.indexOf(article);
-      const articles = this.state.articles;
-      articles.splice(articleIndex, 1);
-      this.setState(articles);
+      const newArticles = this.state.articles;
+      newArticles.splice(articleIndex, 1);
+      this.setState({articles: newArticles});
     })
     .catch((error) => {
       console.log(error);
