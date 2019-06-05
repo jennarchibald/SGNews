@@ -9,6 +9,7 @@ import EditorJournalistList from '../components/EditorJournalistList';
 import FullArticleInfo from '../components/FullArticleInfo';
 import FullJournalistInfo from '../components/FullJournalistInfo';
 import EditorFullJournalistInfo from '../components/EditorFullJournalistInfo';
+import EditorFullArticleInfo from '../components/EditorFullArticleInfo';
 import ErrorPage from '../components/ErrorPage';
 import NavBar from '../components/NavBar';
 import EditorHomePage from '../components/EditorHomePage';
@@ -330,7 +331,7 @@ class MediaContainer extends Component{
                                 const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
                                 if (article){
                                   return (
-                                    <FullArticleInfo article = {article} />
+                                    <EditorFullArticleInfo article = {article} />
                                   )} else {
                                     return (
                                       <ErrorPage />
