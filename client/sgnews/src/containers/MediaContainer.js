@@ -400,7 +400,7 @@ class MediaContainer extends Component{
 
 
                                       </Switch>
-                                      <Footer/>
+                                      <Footer editor = {this.state.editorLogin}/>
                                       </Router>
 
                                     );
