@@ -16,6 +16,7 @@ import EditorHomePage from '../components/EditorHomePage';
 import NewJournalistForm from '../components/NewJournalistForm';
 import EditJournalistForm from '../components/EditJournalistForm';
 import EditArticleForm from '../components/EditArticleForm';
+import ArticleFilterSelect from '../components/ArticleFilterSelect';
 
 class MediaContainer extends Component{
   constructor(props) {
