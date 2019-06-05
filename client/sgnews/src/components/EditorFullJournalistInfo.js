@@ -41,9 +41,8 @@ class EditorFullJournalistInfo extends Component{
           <Button
           variant="contained">
           EDIT JOURNALIST INFO</Button></Link>
-
-
-          <DeletePopover onDelete={this.handleDelete}></DeletePopover>
+          <DeletePopover
+          onDelete={this.handleDelete}></DeletePopover>
           </div>
           <h1>{this.props.journalist.name}</h1>
           <img
