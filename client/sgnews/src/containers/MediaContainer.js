@@ -43,6 +43,7 @@ class MediaContainer extends Component{
   }
 
   componentDidMount() {
+    console.log("hello")
     const articleUrl = 'http://localhost:8080/articles/bydate';
     const journalistsUrl = 'http://localhost:8080/journalists'
     fetch(articleUrl)
