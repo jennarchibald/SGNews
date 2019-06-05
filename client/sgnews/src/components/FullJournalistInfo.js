@@ -16,13 +16,13 @@ class FullJournalistInfo extends Component{
       return(
         <div>
         <h1>{this.props.journalist.name}</h1>
-        <img src={this.props.journalist.image} alt = ""></img>
+        <img className = "journalist-photo" src={this.props.journalist.image} alt = ""></img>
         <p>{this.props.journalist.bio}</p>
         {articles}
         </div>
       )
     }
-    
+
   }
 
   export default FullJournalistInfo;

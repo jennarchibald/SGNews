@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditorJournalistListInfo from './EditorJournalistListInfo';
+import './JournalistList.css'
 
 class EditorJournalistList extends Component {
     render(){
