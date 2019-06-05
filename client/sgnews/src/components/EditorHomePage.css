@@ -1,0 +1,16 @@
+.editor-login, .editor-buttons, .editor-welcome {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-new {
+  margin: 2em;
+}
+
+.MuiButton-root {
+  width: 18em;
+}
