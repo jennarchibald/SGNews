@@ -193,7 +193,7 @@ class NewArticleForm extends Component {
           </div>
           <div className = "submit-button">
           <label></label>
-          <input  type="submit" value="submit" />
+          <input  type="submit" value="Submit" />
           </div>
           </form>
         )};
