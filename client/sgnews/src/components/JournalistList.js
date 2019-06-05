@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JournalistListInfo from './JournalistListInfo';
+import './JournalistList.css';
 
 class JournalistList extends Component {
     render(){

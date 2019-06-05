@@ -1,7 +1,7 @@
 .MuiTabs-flexContainer {
-    background: linear-gradient(to right, #e65c00 , #fceabe);
+    background: linear-gradient(to right, #e65c00 , #F2C94C);
 }
 
 .MuiTabs-wrapper {
-
+    font-size: 7em;
 }
