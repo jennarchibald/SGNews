@@ -1,9 +1,14 @@
 import React from 'react';
 
 
-class ArticleFilterSelect = {
+class ArticleFilterSelect extends React.Component{
   constructor(props){
     super(props)
+
+    this.state = {
+      regionFilter: "ALL",
+      categoryFilter: "ALL"
+    }
 
     this.handleRegionChange = this.handleRegionChange.bind(this)
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
@@ -11,67 +16,75 @@ class ArticleFilterSelect = {
 
 
   handleRegionChange(event){
-    console.log(event.target.value)
+    this.setState({regionFilter: event.target.value}, ()=> {
+      this.props.changeFilter(this.state);
+    })
   }
 
 
   handleCategoryChange(event){
-    console.log(event.target.value)
+    this.setState({categoryFilter: event.target.value}, ()=> {
+      this.props.changeFilter(this.state);
+    })
   }
 
-
+  componentWillUnmount(){
+    this.props.changeFilter({regionFilter: "ALL", categoryFilter: "ALL"})
+  }
 
   render(){
     const regions = ["BORDERS",
-  "CENTRAL",
-  "HIGHLANDS",
-  "LOTHIAN",
-  "STRATHCLYDE",
-  "UK",
-  "WORLD"];
-  
-    const categories = ["BUSINESS",
-  "POLITICS",
-  "TECH",
-  "SCIENCE",
-  "HEALTH",
-  "EDUCATION",
-  "ENTERTAINMENT"];
+    "CENTRAL",
+    "HIGHLANDS",
+    "LOTHIAN",
+    "STRATHCLYDE",
+    "UK",
+    "WORLD"];
 
-  const regionsOptions = regions.map((region) => {
-    return(
-      <option
-      key = {region}
-      value = {region}
-      >
-      {region}
-      </option>
-    )
-  })
-  const categoriesOptions = categories.map((category) => {
-    return(
-      <option
-      key = {category}
-      value = {category}
-      >
-      {category}
-      </option>
-    )
-  })
+    const categories = ["BUSINESS",
+    "POLITICS",
+    "TECH",
+    "SCIENCE",
+    "HEALTH",
+    "EDUCATION",
+    "ENTERTAINMENT"];
+
+    const regionsOptions = regions.map((region) => {
+      return(
+        <option
+        key = {region}
+        value = {region}
+        >
+        {region}
+        </option>
+      )
+    })
+    const categoriesOptions = categories.map((category) => {
+      return(
+        <option
+        key = {category}
+        value = {category}
+        >
+        {category}
+        </option>
+      )
+    })
     return(
       <>
       <select
-      onChange = {this.handleRegionChange}>
+      onChange = {this.handleRegionChange}
+      defaultValue = "ALL">
       <option
-      value = "All">All Regions
+      value = "ALL">All Regions
       </option>
       {regionsOptions}
       </select>
 
       <select
-      onChange = {this.handleCategoryChange}>
+      onChange = {this.handleCategoryChange}
+      defaultValue = "ALL">
       <option
-      value = "All">All Categories
+      value = "ALL">All Categories
       </option>
       {categoriesOptions}
       </select>

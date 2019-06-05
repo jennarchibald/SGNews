@@ -23,6 +23,7 @@ class MediaContainer extends Component{
     super(props)
     this.state = {
       articles: [],
+      selectedArticles: [],
       journalists: [],
       editorLogin: false
     }
@@ -34,6 +35,9 @@ class MediaContainer extends Component{
 
     this.fakeLogin = this.fakeLogin.bind(this);
     this.fakeLogout = this.fakeLogout.bind(this);
+
+    this.applyFilter = this.applyFilter.bind(this);
+
   }
 
   componentDidMount() {
@@ -42,7 +46,7 @@ class MediaContainer extends Component{
     fetch(articleUrl)
     .then(res => res.json())
     .then((articles) => {
-      this.setState({ articles: articles });
+      this.setState({ articles: articles , selectedArticles: articles});
     })
     .catch((error) => {
       console.log(error);
@@ -58,6 +62,27 @@ class MediaContainer extends Component{
       console.log(error)
     });
 
+  }
+
+  applyFilter(filters){
+    let filteredArticles = [];
+
+    if (filters.regionFilter === "ALL"){
+      filteredArticles = this.state.articles;
+    } else {
+      filteredArticles = this.state.articles.filter((article) => {
+        return article.region === filters.regionFilter;
+      })
+    }
+
+    if (filters.categoryFilter !== "ALL"){
+      let articles = filteredArticles.filter((article) => {
+        return article.category === filters.categoryFilter;
+      });
+      filteredArticles = articles;
+    }
+
+    this.setState({selectedArticles: filteredArticles})
   }
 
   fakeLogin(){
@@ -127,11 +152,7 @@ class MediaContainer extends Component{
       return res.json();
     })
     .then((updatedJournalist) => {
-      // console.log(updatedJournalist)
-      // const articles = updatedJournalist["_embedded"].articles;
-      // updatedJournalist.articles = articles;
       const journalist = this.findByID(this.state.journalists, updatedJournalist.id);
-      // console.log(journalist)
       const journalistIndex = this.state.journalists.indexOf(journalist);
       const journalists = this.state.journalists;
       journalists[journalistIndex].bio = updatedJournalist.bio;
@@ -224,7 +245,16 @@ class MediaContainer extends Component{
       />
       <Route
       exact path = "/articles"
-      render = {() => <ArticleList articles = {this.state.articles} />}
+      render = {() => {
+        return(
+          <>
+          <ArticleFilterSelect
+          filterCategories = {this.filterCategories}
+          changeFilter = {this.applyFilter}/>
+          <ArticleList articles = {this.state.selectedArticles} />
+          </>
+        )
+      }}
       />
       <Route
       exact path = "/journalists"
@@ -243,7 +273,16 @@ class MediaContainer extends Component{
         />
         <Route
         exact path = "/editor/articles"
-        render = {() => <EditorArticleList articles = {this.state.articles} />}
+        render = {() => {
+          return(
+            <>
+            <ArticleFilterSelect
+            filterCategories = {this.filterCategories}
+            changeFilter = {this.applyFilter}/>
+            <EditorArticleList articles = {this.state.selectedArticles} />
+            </>
+          )
+        }}
         />
         <Route
         exact path = "/editor/journalists"
