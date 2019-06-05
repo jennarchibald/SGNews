@@ -326,7 +326,8 @@ class MediaContainer extends Component{
                   )}}
                   />
 
-                  <Route                  path = "/articles/:id"
+                  <Route
+                  path = "/articles/:id"
                   render = {(props) => {
                     const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
                     if (article){
@@ -373,7 +374,9 @@ class MediaContainer extends Component{
                                 const article = this.findByID(this.state.articles, parseInt(props.match.params.id));
                                 if (article){
                                   return (
-                                    <EditorFullArticleInfo article = {article} />
+                                    <EditorFullArticleInfo
+                                    article = {article}
+                                    deleteArticle = {this.deleteArticle} />
                                   )} else {
                                     return (
                                       <ErrorPage />

@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './FullArticleInfo.css';
 import DeletePopover from './DeletePopover';
 
 class EditorFullArticleInfo extends Component {
   constructor(props){
     super(props);
-    this.handleDelete = this.handleDelete.bind(props);
+    this.state = {}
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(){
     console.log("Delete article logging")
     this.props.deleteArticle(this.props.article)
+    this.setState({redirect: true})
   }
 
   render() {
-    return (
-      <div>
+    if (this.state.redirect){
+      return (
+        <Redirect to = "/editor/articles" />
+      )
+    } else {
+      return (
+        <div>
         <title>{this.props.article.headline}</title>
         <h1>{this.props.article.headline}</h1>
         <p>Author: {this.props.article.journalist.name}</p>
@@ -29,12 +37,12 @@ class EditorFullArticleInfo extends Component {
         <p>{this.props.article.storyText}</p>
         <h4>Article written by {this.props.article.journalist.name}</h4>
 
-        <DeletePopover onDelete={this.props.handleDelete}></DeletePopover>
+        <DeletePopover onDelete={this.handleDelete}></DeletePopover>
 
-      </div>
+        </div>
       );
     }
-
+  }
 }
 
 export default EditorFullArticleInfo;
