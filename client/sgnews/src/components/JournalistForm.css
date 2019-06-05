@@ -1,0 +1,41 @@
+label {
+    float: left;
+    text-align: right;
+    margin-right: 15px;
+    width: 100px;
+    margin: 0.5em;
+}
+
+.journalist-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+input[type=submit] {
+  display:flex;
+  justify-content: center;
+  padding:5px 15px;
+  background:#e0e0e0;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0.2em 0.2em 0.5em #ababab;
+  font-size: 1.1em;
+}
+
+input, label{
+  margin: 0.5em
+}
+
+input[type=text] {
+  border: 2px solid #ababab;
+   box-shadow:
+     inset 0 0 8px  rgba(0,0,0,0.1),
+           0 0 16px rgba(0,0,0,0.1);
+   padding: 0.4em;
+   background: rgba(255,255,255,0.5);
+   width: 30em;
+}
