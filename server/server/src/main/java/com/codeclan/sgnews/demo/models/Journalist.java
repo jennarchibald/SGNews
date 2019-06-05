@@ -21,7 +21,10 @@ public class Journalist {
     @Column(name = "bio")
     private String bio;
 
-    @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "journalist",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY)
     private List<Article> articles;
 
     public Journalist(String name, String image, String bio) {
