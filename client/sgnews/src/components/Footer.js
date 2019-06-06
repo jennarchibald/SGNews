@@ -12,14 +12,22 @@ const Footer = (props) => {
 
   return (
     <footer className="footer" id = {id}>
-    <a href="https://github.com/ben-barks"><img alt = "" className="gh" src="/../icons/github.png"/></a>
+    <div>
     <a href="https://github.com/jennarchibald"><img alt = "" className="gh" src="/../icons/github.png"/></a>
-    <a href="https://github.com/beerbatteredcode"><img alt = "" className="gh" src="/../icons/github.png"/></a>
-    <a href="https://github.com/EnigmaticGale"><img alt = "" className="gh" src="/../icons/github.png"/></a>
     <a href="https://www.linkedin.com/in/jennarchibald91/"><img alt = "" className="gh" src="/../icons/linkedin.png"/></a>
+    </div>
+    <div>
+    <a href="https://github.com/beerbatteredcode"><img alt = "" className="gh" src="/../icons/github.png"/></a>
     <a href="https://www.linkedin.com/in/grant-rutherford-4a889a17b/"><img alt = "" className="gh" src="/../icons/linkedin.png"/></a>
+    </div>
+    <div>
+    <a href="https://github.com/ben-barks"><img alt = "" className="gh" src="/../icons/github.png"/></a>
     <a href="https://www.linkedin.com/in/ben-svajko/"><img alt = "" className="gh" src="/../icons/linkedin.png"/></a>
-
+    </div>
+    <div>
+    <a href="https://github.com/EnigmaticGale"><img alt = "" className="gh" src="/../icons/github.png"/></a>
+    <a href="https://www.linkedin.com/in/hamish-whyte-691a37182/"><img alt = "" className="gh" src="/../icons/linkedin.png"/></a>
+    </div>
     </footer>
   )
 }
