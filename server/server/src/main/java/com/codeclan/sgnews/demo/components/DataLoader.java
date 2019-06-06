@@ -30,7 +30,7 @@ public class DataLoader implements ApplicationRunner {
         Journalist grant = new Journalist("Grant", "https://media.licdn.com/dms/image/C5603AQFMqy1DXCwMYQ/profile-displayphoto-shrink_800_800/0?e=1565222400&v=beta&t=y7jKxnyByyl4HrjjQ4vW-hYAgyoCn4Ak8hx5LWcmflY", "I’m indifferent to most items on the planet. Some people call me a Social Media Guru. I don’t correct them.");
         journalistRepository.save(grant);
 
-        Journalist hamish = new Journalist("Hamish", "https://zcoin.io/wp-content/uploads/2017/01/blank-avatar-300x300.png", "90% of your problems can be solved by marketing.  Solving the other 10% just requires good procrastination skills.");
+        Journalist hamish = new Journalist("Hamish", "/images/hamish.jpg", "90% of your problems can be solved by marketing.  Solving the other 10% just requires good procrastination skills.");
         journalistRepository.save(hamish);
 
         Journalist jenn = new Journalist("Jenn", "https://media.licdn.com/dms/image/C4D03AQG46HFFZmTcWw/profile-displayphoto-shrink_200_200/0?e=1565222400&v=beta&t=r_nwa_S2VjxGKXDRtRY1HfWkCIPxiEiVYUtKXRlMnyw", "Insert pretentious crap about myself here.");
