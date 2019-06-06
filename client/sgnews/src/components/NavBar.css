@@ -9,7 +9,7 @@
 }
 
 .NavBar-container {
-  height: 3.5em;
+  height: 4.2em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -23,4 +23,11 @@
 
 .editor-link {
   margin-right: 25em;
+}
+
+.nav-logo {
+  margin-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 4.5em;
+  height: auto;
 }

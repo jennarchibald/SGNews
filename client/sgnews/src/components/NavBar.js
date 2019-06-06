@@ -21,7 +21,9 @@ class NavBar extends React.Component{
     return (
       <AppBar title="">
       <div className = "MuiTabs-flexContainer NavBar-container" id = {id}>
-      <Link className = "nav-link" to = "/">Home</Link>
+      <Link className = "nav-link" to = "/">
+        <img className="nav-logo" src="/images/SGNews1.png" alt="TitleLogo"></img>
+      </Link>
       <Link className = "nav-link" to = {`${initialPath}articles`}>Articles</Link>
       <Link className = "nav-link" to = {`${initialPath}journalists`}>Journalists</Link>
       <Link className = "nav-link editor-link" to = "/editor">Editor Portal</Link>

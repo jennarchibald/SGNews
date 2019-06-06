@@ -244,7 +244,12 @@ class MediaContainer extends Component{
       <Switch>
       <Route
       exact path = "/"
-      render = {() => <MediaTitle title = "SGNews" />}
+      render = {() => {
+      return(
+      <>
+      <img className="title-logo" src="/images/SGNews4.png" alt="TitleLogo"></img>
+      </>
+      )}}
       />
       <Route
       exact path = "/articles"
