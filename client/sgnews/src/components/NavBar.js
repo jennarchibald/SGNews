@@ -19,7 +19,7 @@ class NavBar extends React.Component{
     }
 
     return (
-      <AppBar title="navbar">
+      <AppBar title="">
       <div className = "MuiTabs-flexContainer NavBar-container" id = {id}>
       <Link className = "nav-link" to = "/">Home</Link>
       <Link className = "nav-link" to = {`${initialPath}articles`}>Articles</Link>
